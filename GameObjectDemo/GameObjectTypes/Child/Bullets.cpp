@@ -16,10 +16,6 @@ Bullet::Bullet(){
     SetColliderShape("Sqaure");
 }
 
-// Destructor
-Bullet::~Bullet(){
-}
-
 // Initalise the bullet
 void Bullet::Init(){
 }

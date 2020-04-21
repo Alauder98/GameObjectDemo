@@ -19,7 +19,7 @@ class Alien: public GameObject, Shooter, Collision{
 public:
     // Constructor / destructor
     Alien();
-    ~Alien();
+    ~Alien() = default;
     
     // Functions
     void Update(float deltaTime) override;

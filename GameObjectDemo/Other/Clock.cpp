@@ -8,19 +8,13 @@
 
 #include "Clock.hpp"
 
-// deafult constuctor
-Clock::Clock(){}
-
-// destructor
-Clock::~Clock(){}
-
 // Move timer along based on when called
 void Clock::Tick(){
   // Calculations
 }
 
 // return time
-float Clock::GetTime(){
+float Clock::GetTime() const{
     return elapsedTime;
 }
 

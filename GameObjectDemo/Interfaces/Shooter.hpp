@@ -9,8 +9,6 @@
 #ifndef Shooter_hpp
 #define Shooter_hpp
 
-#include <vector>
-#include <stdio.h>
 #include "Bullets.hpp"
 
 // interface to manage shooting of bullets for child class
@@ -18,7 +16,7 @@ class Shooter{
 public:
     // Constructor / destructor
     Shooter();
-    ~Shooter();
+    virtual ~Shooter();
     
     // functions
     void Fire(float xPos, float yPos);

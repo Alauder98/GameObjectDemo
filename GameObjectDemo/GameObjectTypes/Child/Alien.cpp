@@ -8,16 +8,14 @@
 
 #include "Alien.hpp"
 
+// This include is here for testing purposes, would be removed in actual implementation
+#include <iostream>
+
 // Constructor
 Alien::Alien(){
     std::cout << "I'm an Alien and I've been born!" << std::endl;
     // set collider shapes
     SetColliderShape("Sqaure");
-}
-
-// Desctuctor
-Alien::~Alien(){
-    std::cout << "I'm an Alien and I've been deleted!" << std::endl;
 }
 
 // Function to update
@@ -45,7 +43,7 @@ void Alien::Shoot(){
     // Do a random calculation
     
     // fire the bullet
-    Fire(position->x(), position->y());
+    Fire(position.x(), position.y());
 }
 
 // Function to check collision

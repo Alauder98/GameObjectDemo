@@ -9,8 +9,6 @@
 #ifndef GameObject_hpp
 #define GameObject_hpp
 
-#include <iostream>
-#include <stdio.h>
 #include "Vector2.hpp"
 
 // Class GameObject
@@ -19,19 +17,19 @@ class GameObject{
 public:
     // Constuctors
     GameObject();
-    virtual ~GameObject();
+    virtual ~GameObject() = default;
     
     // Functions
     virtual void Update(float DeltaTime) = 0;
     virtual void Init() = 0;
     virtual void Render() = 0;
     void SetActive(bool newValue);
-    bool GetActive();
-    void setPos(int x, int y);
+    bool GetActive() const;
+    void setPos(float x, float y);
     
 protected:
     bool isActive; // is object active
-    Vector2* position; // the 2D position of the object
+    Vector2 position; // the 2D position of the object
 };
 
 #endif /* GameObject_hpp */

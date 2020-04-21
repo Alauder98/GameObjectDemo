@@ -18,7 +18,7 @@ class Bullet: public GameObject, Collision{
 public:
     // Constructor
     Bullet();
-    ~Bullet();
+    ~Bullet() = default;
     
     // Functions
     void Update(float deltaTime) override;

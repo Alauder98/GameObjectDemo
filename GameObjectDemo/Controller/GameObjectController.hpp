@@ -9,7 +9,6 @@
 #ifndef GameObjectController_hpp
 #define GameObjectController_hpp
 
-#include <stdio.h>
 #include <vector>
 #include "GameObject.hpp"
 
@@ -18,7 +17,7 @@ class GameObjectController{
 public:
     // Constructor / Destructor
     GameObjectController();
-    ~GameObjectController();
+    ~GameObjectController() = default;
     
     // functions
     void UpdateAll(float deltaTime);
@@ -27,7 +26,7 @@ public:
     void Remove(bool all);
 private:
     // vector to hold gameObjects
-    std::vector<GameObject *> * objectList;
+    std::unique_ptr<std::vector<GameObject *>> objectList;
 };
 
 #endif /* GameObjectController_hpp */

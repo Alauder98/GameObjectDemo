@@ -7,31 +7,26 @@
 //
 
 #include "Game.hpp"
-#include "GameObjectController.hpp"
-#include "Clock.hpp"
 
 /* These would be removed and used in a more fomal "level" class*/
 #include "SpaceShip.hpp"
 #include "Alien.hpp"
 
-// constructor
-Game::Game(){}
 
 // destructor
 Game::~Game(){
     // delete all gameobjects
     objectController->Remove(true);
-    // delete the controller
-    delete objectController;
+    // delete the controller and clock
 }
 
 // Function to start game
 void Game::Start(){
     // create new object controller
-    objectController = new GameObjectController();
+    objectController = std::make_unique<GameObjectController>();
     
     // create and start clock
-    gameClock = new Clock();
+    gameClock = std::make_unique<Clock>();
     gameClock->Start();
     
     // Create Releveant game objects for test

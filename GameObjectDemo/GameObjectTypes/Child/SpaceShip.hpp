@@ -9,7 +9,6 @@
 #ifndef SpaceShip_hpp
 #define SpaceShip_hpp
 
-#include <stdio.h>
 #include "GameObject.hpp"
 #include "Shooter.hpp"
 #include "Collision.hpp"
@@ -19,7 +18,7 @@ class SpaceShip: public GameObject, Shooter, Collision{
 public:
     // Constructor / Destructor
     SpaceShip();
-    ~SpaceShip();
+    ~SpaceShip() = default;
     
     // Functions
     void Update(float DeltaTime) override;

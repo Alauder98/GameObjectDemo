@@ -11,21 +11,24 @@
 
 #include <string>
 
+// forward decleration of class shape
+class Shape;
+
 // Class to handle collisions for objects
 class Collision{
 public:
     // Constructor / Destructor
-    Collision();
-    ~Collision();
+    Collision() = default;
+    virtual ~Collision() = default;
     
     // Functions
-    void SetColliderShape(std::string shape);
+    void SetColliderShape(const std::string& shape);
     virtual void CheckCollision() = 0;
     std::string UpdateCollider();
     
 private:
     // the shape of this object
-    class Shape colliderShape();
+    Shape colliderShape();
 };
 
 #endif /* Collision_hpp */

@@ -7,6 +7,8 @@
 //
 
 #include "Shooter.hpp"
+#include <vector>
+
 #define BULLET_SIZE 3 // how many bullets can be fired at once
 
 // An interface to allow for a gameobject to shoot bullets

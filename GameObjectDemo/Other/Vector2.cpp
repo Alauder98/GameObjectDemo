@@ -16,12 +16,9 @@ Vector2::Vector2(float newX, float newY)
 }
 
 // constructor for when no values are passed
-Vector2::Vector2(){
-    _x = _y = 0;
+Vector2::Vector2():_x(0.0f), _y(0.0f)
+{
 }
-
-// Destructor
-Vector2::~Vector2(){}
 
 // + operator
 Vector2 Vector2::operator +(const Vector2& other) const{
@@ -43,4 +40,9 @@ void Vector2::operator*(const int multiplier){
 void Vector2::operator/(const int divider){
     _x /= divider;
     _y /= divider;
+}
+
+void Vector2::Set(float x, float y){
+    _x = x;
+    _y = y;
 }

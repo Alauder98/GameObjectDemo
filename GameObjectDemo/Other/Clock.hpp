@@ -9,18 +9,16 @@
 #ifndef Clock_hpp
 #define Clock_hpp
 
-#include <stdio.h>
-
 // class to manage a clock to calcualte frame time
 class Clock{
 public:
     // constructor / destructor
-    Clock();
-    ~Clock();
+    Clock() = default;
+    ~Clock() = default;
     
     // functions
     void Tick();
-    float GetTime();
+    float GetTime() const;
     void Start();
     
 private:

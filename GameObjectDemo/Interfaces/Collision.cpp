@@ -8,12 +8,6 @@
 
 #include "Collision.hpp"
 
-// constructor
-Collision::Collision(){}
-
-// Destrcutor
-Collision::~Collision(){}
-
 // Function to Update collision shape position and check for any
 //collisions that occur inside
 std::string Collision::UpdateCollider(){
@@ -23,7 +17,7 @@ std::string Collision::UpdateCollider(){
 }
 
 // Function to set collision shape of the object
-void Collision::SetColliderShape(std::string collisionShape){
+void Collision::SetColliderShape(const std::string& collisionShape){
     // would parse shape and set accordingly
 }
 

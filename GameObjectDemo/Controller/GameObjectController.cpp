@@ -11,13 +11,7 @@
 // Constructor
 GameObjectController::GameObjectController(){
     // Create new objects
-    objectList = new std::vector<GameObject*>();
-}
-
-// Destructor
-GameObjectController::~GameObjectController(){
-    // Delete the object list
-    delete objectList;
+    objectList = std::make_unique<std::vector<GameObject*>>();
 }
 
 // Function to update all objects in the list

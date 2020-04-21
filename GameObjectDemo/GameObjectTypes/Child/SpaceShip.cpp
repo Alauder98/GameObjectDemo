@@ -8,16 +8,14 @@
 
 #include "SpaceShip.hpp"
 
+// This include is here for testing purposes, would be removed in actual implementation
+#include <iostream>
+
 // Constructor for SpaceShip
 SpaceShip::SpaceShip(){
     std::cout<< "I'mm a SpaceShip and I'be been born!" << std::endl;
     // set collider shapes
     SetColliderShape("Sqaure");
-}
-
-// Destructor for spaceShip
-SpaceShip::~SpaceShip(){
-   std::cout << "I'm a SpaceShip and I've been deleted :( bye!" << std::endl;
 }
 
 // Function to initalise the spaceship
@@ -54,7 +52,7 @@ void SpaceShip::Hit(){
 // Function to shoot a bullet
 void SpaceShip::Shoot(){
     // Get Keyboard input
-    Fire(position->x(), position->y());
+    Fire(position.x(), position.y());
 }
 
 // Function to check collision

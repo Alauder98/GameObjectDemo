@@ -9,15 +9,13 @@
 #ifndef Vector2_hpp
 #define Vector2_hpp
 
-#include <stdio.h>
-
 // class for a vector that stores x and y values
 class Vector2{
 public:
     // constructor and destructor
     Vector2();
     Vector2(float x, float y);
-    ~Vector2();
+    ~Vector2() = default;
     
     // operator overrides
     inline Vector2 operator +(const Vector2 & other) const;
@@ -26,8 +24,11 @@ public:
     inline void operator /(const int divider);
     
     // return functions
-    int x() const {return _x;}
-    int y() const {return _y;}
+    float x() const {return _x;}
+    float y() const {return _y;}
+    
+    // Set function
+    void Set(float x, float y);
     
 private:
     // x and y values
