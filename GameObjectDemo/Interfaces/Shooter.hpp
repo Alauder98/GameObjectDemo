@@ -9,6 +9,7 @@
 #ifndef Shooter_hpp
 #define Shooter_hpp
 
+#include <vector>
 #include "Bullets.hpp"
 
 // interface to manage shooting of bullets for child class
@@ -16,7 +17,7 @@ class Shooter{
 public:
     // Constructor / destructor
     Shooter();
-    virtual ~Shooter();
+    virtual ~Shooter() = default;
     
     // functions
     void Fire(float xPos, float yPos);
@@ -25,7 +26,7 @@ public:
     
 private:
     // vector of bullets
-    std::vector<Bullet*> * bullets;
+    std::unique_ptr<std::vector<std::unique_ptr<Bullet>>> bullets;
 };
 
 #endif /* Shooter_hpp */

@@ -7,7 +7,6 @@
 //
 
 #include "Shooter.hpp"
-#include <vector>
 
 #define BULLET_SIZE 3 // how many bullets can be fired at once
 
@@ -16,38 +15,22 @@
 // constructor (Deafult)
 Shooter::Shooter(){
     // intialising bullets
-    bullets = new std::vector<Bullet*>();
+    bullets = std::make_unique<std::vector<std::unique_ptr<Bullet>>>();
     bullets->reserve(BULLET_SIZE);
     
     for (int i = 0; i < BULLET_SIZE; i++){
-        Bullet* newBullet = new Bullet();
-        bullets->push_back(newBullet);
+        bullets->push_back(std::make_unique<Bullet>());
     }
 }
 
 // Update function to be called each frame
 void Shooter::Update(float deltaTime){
-    for (Bullet* bullet : * bullets){
+    for (auto& bullet : * bullets){
         // if bullets are active, update them
         if (bullet->GetActive()){
             bullet->Update(deltaTime);
         }
     }
-}
-
-// destructor
-Shooter::~Shooter(){
-    for (Bullet * & bullet : * bullets){
-        // delete bullets
-        delete bullet;
-        bullet = nullptr;
-    }
-    
-    // erase nullptrs
-    bullets->erase(std::remove_if(bullets->begin(), bullets->end(), [](GameObject * obj){return obj == nullptr;}), bullets->end());
-    
-    // delete the list
-    delete bullets;
 }
 
 // function to fire a bullet
