@@ -7,22 +7,28 @@
 //
 
 #pragma once
+
+#include <chrono>
+
 // class to manage a clock to calcualte frame time
 class Clock
 {
 public:
     // constructor / destructor
-    Clock() = default;
+    Clock();
     ~Clock() = default;
     
     // functions
     void Tick();
-    float GetTime() const;
-    void Start();
+    float const GetDeltaTime() { return m_deltaTime.count(); } ;
+    void Reset();
+    void TimeScale (float t = 1.0f);
+    float const GetTimeScale() { return m_timeScale; } ;
     
 private:
-    int m_freqeuncy; // how often the clock is called
-    int m_start; // when we started
-    int m_end; // when we are called
-    float m_elapsedTime; // how long has elapesed between calls
+    std::chrono::system_clock::time_point m_startTime;
+    std::chrono::duration<float> m_deltaTime;
+    float m_timeScale;
+    
+    
 };

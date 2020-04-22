@@ -32,6 +32,8 @@ void Bullet::Update(float deltaTime)
         ProcessCollision();
     }
     
+    GetShape().setPos(m_position);
+    
     // subtract from lifespan
     m_lifespan -= deltaTime;
     // if lifespan is finished, set to inactive

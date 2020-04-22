@@ -8,19 +8,27 @@
 
 #include "Clock.h"
 
-// Move timer along based on when called
+Clock::Clock(){
+    Reset();
+    m_timeScale = 1.0f;
+    m_deltaTime = std::chrono::duration<float>(0.0f);
+}
+
+void Clock::Reset()
+{
+    m_startTime = std::chrono::system_clock::now();
+}
+
+void Clock::TimeScale(float t /* = 1.0f */)
+{
+    m_timeScale = t;
+}
+
 void Clock::Tick()
 {
-  // Calculations
+    m_deltaTime = std::chrono::system_clock::now() - m_startTime;
 }
 
-float Clock::GetTime() const
-{
-    return m_elapsedTime;
-}
 
-// Function called upon starting clock, define start time
-void Clock::Start()
-{
-    
-}
+
+

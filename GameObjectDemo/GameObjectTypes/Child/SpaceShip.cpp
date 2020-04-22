@@ -32,6 +32,8 @@ void SpaceShip::Update(float deltaTime)
         ProcessCollision();
     }
     
+    GetShape().setPos(m_position);
+    
     std::cout << "I'm a SpaceShip, and I'm updating!" << std::endl;
     // Update the bullets
     i_Shooter::Update(deltaTime);

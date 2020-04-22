@@ -7,6 +7,7 @@
 //
 
 #pragma once
+#include "Vector2.h"
 
 // Class to store a shape
 class Shape{
@@ -17,11 +18,14 @@ public:
     ~Shape() = default;
     
     // Functions
-    float const x() { return m_xWidth; };
-    float const y() { return m_yHeight; };
+    float const X() { return m_xWidth; };
+    float const Y() { return m_yHeight; };
+    void setPos(Vector2 newPos);
     
 private:
     // x and y height
     float m_yHeight;
     float m_xWidth;
+    Vector2 m_position;
+    
 };

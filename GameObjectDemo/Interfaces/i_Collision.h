@@ -10,7 +10,6 @@
 
 #include <string>
 #include "Shape.h"
-#include "Vector2.h"
 
 enum e_CollisionTypes{
     NONE = 0,
@@ -34,11 +33,11 @@ public:
     void SetColliderShape(const std::string& shape);
     virtual void ProcessCollision() = 0;
     e_CollisionTypes const CheckCollision();
+    Shape& GetShape() {return m_colliderShape; };
     
 private:
     // the shape of this object
     Shape m_colliderShape;
     e_CollisionTypes m_collisionType;
-    Vector2 m_shapePosition;
     
 };

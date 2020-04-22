@@ -12,6 +12,7 @@
 #include "SpaceShip.h"
 #include "Alien.h"
 
+#include <iostream>
 
 // destructor
 Game::~Game()
@@ -23,9 +24,6 @@ Game::~Game()
 // Function to start game
 void Game::Start()
 {
-    
-    m_gameClock.Start();
-    
     // Create Releveant game objects for test
     SpaceShip* testSpaceShip = new SpaceShip();
     Alien* testAlien = new Alien();
@@ -40,7 +38,9 @@ void Game::ProcessFrame()
 {
     // tick timer
     m_gameClock.Tick();
-    m_objectController.UpdateAll(m_gameClock.GetTime());
+    
+    // Update -> Render -> Remove inactive
+    m_objectController.UpdateAll(m_gameClock.GetDeltaTime());
     m_objectController.RenderAll();
     m_objectController.Remove(false);
 }

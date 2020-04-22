@@ -27,6 +27,8 @@ void Alien::Update(float deltaTime)
         ProcessCollision();
     }
     
+    GetShape().setPos(m_position);
+    
     std::cout << "I'm an Alien and I'm updating!" << std::endl;
     // update
     i_Shooter::Update(deltaTime);

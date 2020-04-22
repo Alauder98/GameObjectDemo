@@ -15,7 +15,13 @@ Shape::Shape():m_yHeight(0.0f),m_xWidth(0.0f)
 }
 
 // constructor for passed arguments
-Shape::Shape(float x, float y){
+Shape::Shape(float x, float y)
+{
     m_xWidth = x;
     m_yHeight = y;
+}
+
+void Shape::setPos(Vector2 newPos)
+{
+    m_position = newPos;
 }
