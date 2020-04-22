@@ -12,10 +12,10 @@
 #include "Shape.h"
 
 enum e_CollisionTypes{
-    NONE = 0,
-    PLAYER = 1,
-    ENEMY = 2,
-    BULLET = 3
+    NONE = 1,
+    PLAYER = 2,
+    ENEMY = 4,
+    BULLET = 8
 };
 
 // forward decleration of class shape
@@ -31,9 +31,11 @@ public:
     
     // Functions
     void SetColliderShape(const std::string& shape);
-    virtual void ProcessCollision() = 0;
+    virtual void ProcessCollision(e_CollisionTypes type) = 0;
     e_CollisionTypes const CheckCollision();
     Shape& GetShape() {return m_colliderShape; };
+    void AddCollisionType(e_CollisionTypes newType);
+    e_CollisionTypes const getCollisionType() {return m_collisionType; };
     
 private:
     // the shape of this object

@@ -11,7 +11,7 @@
 // This include is here for testing purposes, would be removed in actual implementation
 #include <iostream>
 
-SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER)
+SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER), i_Shooter(e_CollisionTypes::PLAYER)
 {
     std::cout<< "I'mm a SpaceShip and I'be been born!" << std::endl;
     // set collider shapes
@@ -28,8 +28,9 @@ void SpaceShip::Init()
 void SpaceShip::Update(float deltaTime)
 {
     // check if any collisions occured, if so, process
-    if (CheckCollision() != e_CollisionTypes::NONE){
-        ProcessCollision();
+    e_CollisionTypes type = CheckCollision();
+    if (type != e_CollisionTypes::NONE){
+        ProcessCollision(type);
     }
     
     GetShape().setPos(m_position);
@@ -64,7 +65,17 @@ void SpaceShip::Shoot()
 }
 
 // Function to check collision
-void SpaceShip::ProcessCollision()
+void SpaceShip::ProcessCollision(e_CollisionTypes type)
 {
-    // Redo Implementation
+    switch ((int)type)
+    {
+        case 12:
+        case 4:
+            m_health--;
+            if (m_health == 0)
+            {
+                SetActive(false);
+            }
+            break;
+    }
 }

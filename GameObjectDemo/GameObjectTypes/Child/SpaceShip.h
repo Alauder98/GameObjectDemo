@@ -13,7 +13,7 @@
 #include "i_Collision.h"
 
 // Class to create spaceship
-class SpaceShip: public a_GameObject, i_Shooter, i_Collision
+class SpaceShip: public a_GameObject, public i_Shooter, public i_Collision
 {
 public:
     // Constructor / Destructor
@@ -25,7 +25,7 @@ public:
     void Render() override;
     void Init() override;
     void Shoot() override;
-    void ProcessCollision() override;
+    void ProcessCollision(e_CollisionTypes type) override;
     void Hit();
     
 private:

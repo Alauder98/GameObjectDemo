@@ -27,9 +27,10 @@ void Bullet::SetActive(bool newValue)
 
 void Bullet::Update(float deltaTime)
 {
+    e_CollisionTypes type = CheckCollision();
     // check if any collisions occured, if so, process
-    if (CheckCollision() != e_CollisionTypes::NONE){
-        ProcessCollision();
+    if (type != e_CollisionTypes::NONE){
+        ProcessCollision(type);
     }
     
     GetShape().setPos(m_position);
@@ -48,7 +49,16 @@ void Bullet::Render()
 }
 
 // Process Collision with bullet
-void Bullet::ProcessCollision()
+void Bullet::ProcessCollision(e_CollisionTypes type)
 {
-    // Redo implementation
+    // if player is colided with and we are enemy bullet
+    // or if we are player bullet who has colided with enemy
+    if ((type == e_CollisionTypes::PLAYER &&
+         (int)getCollisionType() ==  12)
+        ||
+        (type == e_CollisionTypes::ENEMY &&
+        (int) getCollisionType() == 10))
+    {
+        SetActive(false);
+    }
 }

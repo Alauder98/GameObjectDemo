@@ -11,15 +11,16 @@
 #define BULLET_SIZE 3 // how many bullets can be fired at once
 
 // constructor (Deafult)
-i_Shooter::i_Shooter()
+i_Shooter::i_Shooter(e_CollisionTypes parentCollisionType)
 {
     // intialising bullets
     m_bullets.reserve(BULLET_SIZE);
     
     for (int i = 0; i < BULLET_SIZE; i++)
     {
-        Bullet temp;
-        m_bullets.push_back(temp);
+        Bullet newBullet;
+        newBullet.AddCollisionType(parentCollisionType);
+        m_bullets.push_back(newBullet);
     }
 }
 

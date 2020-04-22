@@ -15,7 +15,7 @@ class i_Shooter
 {
 public:
     // Constructor / destructor
-    i_Shooter();
+    i_Shooter(e_CollisionTypes parentCollisionType);
     virtual ~i_Shooter() = default;
     
     // functions

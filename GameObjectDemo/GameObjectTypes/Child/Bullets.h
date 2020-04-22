@@ -13,7 +13,7 @@
 #include "i_Collision.h"
 
 // Class to create a bullet object
-class Bullet: public a_GameObject, i_Collision
+class Bullet: public a_GameObject, public i_Collision
 {
 public:
     // Constructor
@@ -24,7 +24,7 @@ public:
     void Update(float deltaTime) override;
     void Render() override;
     void Init() override;
-    void ProcessCollision() override;
+    void ProcessCollision(e_CollisionTypes type) override;
     void SetActive(bool newValue) override;
     
 private:

@@ -12,7 +12,7 @@
 #include <iostream>
 
 // Constructor
-Alien::Alien():i_Collision(e_CollisionTypes::ENEMY)
+Alien::Alien():i_Collision(e_CollisionTypes::ENEMY), i_Shooter(e_CollisionTypes::ENEMY)
 {
     std::cout << "I'm an Alien and I've been born!" << std::endl;
     // set collider shapes
@@ -23,8 +23,9 @@ Alien::Alien():i_Collision(e_CollisionTypes::ENEMY)
 void Alien::Update(float deltaTime)
 {
     // check if any collisions occured, if so, process
-    if (CheckCollision() != e_CollisionTypes::NONE){
-        ProcessCollision();
+    e_CollisionTypes type = CheckCollision();
+    if (type != e_CollisionTypes::NONE){
+        ProcessCollision(type);
     }
     
     GetShape().setPos(m_position);
@@ -57,7 +58,12 @@ void Alien::Shoot()
 }
 
 // Function to check collision
-void Alien::ProcessCollision()
+void Alien::ProcessCollision(e_CollisionTypes type)
 {
-    // Redo Implementation
+    switch((int)type)
+    {
+        case 10:
+            SetActive(false);
+            break;
+    }
 }
