@@ -14,7 +14,10 @@ void GameObjectController::UpdateAll(float deltaTime)
 {
     for (a_GameObject* object : m_objectList)
     {
-        object->Update(deltaTime);
+        if (object)
+        {
+            object->Update(deltaTime);
+        }
     }
 }
 
@@ -23,15 +26,21 @@ void GameObjectController::RenderAll()
 {
     for (a_GameObject* object : m_objectList)
     {
-        object->Render();
+        if (object)
+        {
+            object->Render();
+        }
     }
 }
 
 // Add an Object to the list
 void GameObjectController::Add(a_GameObject* object)
 {
-    m_objectList.push_back(object);
-    object->Init();
+    if (object)
+    {
+        m_objectList.push_back(object);
+        object->Init();
+    }
 }
 
 // Remove an object from the list
@@ -40,7 +49,7 @@ void GameObjectController::Remove(bool removeAll)
     for (a_GameObject * & object : m_objectList)
     {
         // check if inactive, or if we will delete all objects
-        if (!object->GetActive() || removeAll)
+        if ((object && !object->GetActive()) || removeAll)
         {
             delete object;
             object = nullptr;
