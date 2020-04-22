@@ -6,9 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Clock_hpp
-#define Clock_hpp
-
+#pragma once
 // class to manage a clock to calcualte frame time
 class Clock
 {
@@ -28,5 +26,3 @@ private:
     int m_end; // when we are called
     float m_elapsedTime; // how long has elapesed between calls
 };
-
-#endif /* Clock_hpp */

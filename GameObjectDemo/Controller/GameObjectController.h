@@ -6,9 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef GameObjectController_hpp
-#define GameObjectController_hpp
-
+#pragma once
 #include <vector>
 
 class a_GameObject;
@@ -30,5 +28,3 @@ private:
     // vector to hold gameObjects
     std::vector<a_GameObject *> m_objectList;
 };
-
-#endif /* GameObjectController_hpp */

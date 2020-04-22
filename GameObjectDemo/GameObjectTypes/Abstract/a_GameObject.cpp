@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "a_GameObject.hpp"
+#include "a_GameObject.h"
 
 void a_GameObject::SetActive(bool newValue)
 {

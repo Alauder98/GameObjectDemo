@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "i_Shooter.hpp"
+#include "i_Shooter.h"
 
 #define BULLET_SIZE 3 // how many bullets can be fired at once
 

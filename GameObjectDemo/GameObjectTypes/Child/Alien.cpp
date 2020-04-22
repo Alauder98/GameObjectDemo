@@ -6,13 +6,13 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Alien.hpp"
+#include "Alien.h"
 
 // This include is here for testing purposes, would be removed in actual implementation
 #include <iostream>
 
 // Constructor
-Alien::Alien()
+Alien::Alien():i_Collision(e_CollisionTypes::ENEMY)
 {
     std::cout << "I'm an Alien and I've been born!" << std::endl;
     // set collider shapes
@@ -23,7 +23,7 @@ Alien::Alien()
 void Alien::Update(float deltaTime)
 {
     // check if any collisions occured, if so, process
-    if (CheckCollision()){
+    if (CheckCollision() != e_CollisionTypes::NONE){
         ProcessCollision();
     }
     

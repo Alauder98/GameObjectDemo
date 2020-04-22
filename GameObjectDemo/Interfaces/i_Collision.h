@@ -6,11 +6,18 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Collision_hpp
-#define Collision_hpp
+#pragma once
 
 #include <string>
 #include "Shape.h"
+#include "Vector2.h"
+
+enum e_CollisionTypes{
+    NONE = 0,
+    PLAYER = 1,
+    ENEMY = 2,
+    BULLET = 3
+};
 
 // forward decleration of class shape
 class Shape;
@@ -20,18 +27,18 @@ class i_Collision
 {
 public:
     // Constructor / Destructor
-    i_Collision() = default;
+    i_Collision(e_CollisionTypes collisionType);
     virtual ~i_Collision() = default;
     
     // Functions
     void SetColliderShape(const std::string& shape);
     virtual void ProcessCollision() = 0;
-    bool CheckCollision();
-    Shape const returnColliderShape() { return m_colliderShape; };
+    e_CollisionTypes const CheckCollision();
     
 private:
     // the shape of this object
     Shape m_colliderShape;
+    e_CollisionTypes m_collisionType;
+    Vector2 m_shapePosition;
+    
 };
-
-#endif /* Collision_hpp */

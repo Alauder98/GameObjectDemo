@@ -6,8 +6,8 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "GameObjectController.hpp"
-#include "a_GameObject.hpp"
+#include "GameObjectController.h"
+#include "a_GameObject.h"
 
 // Function to update all objects in the list
 void GameObjectController::UpdateAll(float deltaTime)

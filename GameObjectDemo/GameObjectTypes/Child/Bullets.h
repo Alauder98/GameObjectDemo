@@ -6,12 +6,11 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Bullets_hpp
-#define Bullets_hpp
+#pragma once
 
 #include <stdio.h>
-#include "a_GameObject.hpp"
-#include "i_Collision.hpp"
+#include "a_GameObject.h"
+#include "i_Collision.h"
 
 // Class to create a bullet object
 class Bullet: public a_GameObject, i_Collision
@@ -31,5 +30,3 @@ public:
 private:
     float m_lifespan; // the lifespan of this bullet
 };
-
-#endif /* Bullets_hpp */

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Clock.hpp"
+#include "Clock.h"
 
 // Move timer along based on when called
 void Clock::Tick()

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Game.hpp"
+#include "Game.h"
 #include <iostream>
 
 // Main to demo logic

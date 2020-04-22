@@ -6,13 +6,11 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Vector2.hpp"
+#include "Vector2.h"
 
 // Constructor which has passed values (Deafult)
-Vector2::Vector2(float newX, float newY)
+Vector2::Vector2(float newX, float newY):m_x(newX), m_y(newY)
 {
-    m_x = newX;
-    m_y = newY;
 }
 
 // constructor for when no values are passed

@@ -6,13 +6,9 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Shooter_hpp
-#define Shooter_hpp
-
-
-
+#pragma once
 #include <vector>
-#include "Bullets.hpp"
+#include "Bullets.h"
 
 // interface to manage shooting of bullets for child class
 class i_Shooter
@@ -31,5 +27,3 @@ private:
     // vector of bullets
     std::vector<Bullet> m_bullets;
 };
-
-#endif /* Shooter_hpp */

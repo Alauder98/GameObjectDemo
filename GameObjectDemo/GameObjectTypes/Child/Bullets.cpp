@@ -6,10 +6,10 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Bullets.hpp"
+#include "Bullets.h"
 
 // Constructor
-Bullet::Bullet()
+Bullet::Bullet():i_Collision(e_CollisionTypes::BULLET)
 {
     // set collider shapes
     SetColliderShape("Sqaure");
@@ -28,7 +28,7 @@ void Bullet::SetActive(bool newValue)
 void Bullet::Update(float deltaTime)
 {
     // check if any collisions occured, if so, process
-    if (CheckCollision()){
+    if (CheckCollision() != e_CollisionTypes::NONE){
         ProcessCollision();
     }
     

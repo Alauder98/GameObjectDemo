@@ -6,12 +6,10 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Game_hpp
-#define Game_hpp
-
+#pragma once
 #include <stdio.h>
-#include "GameObjectController.hpp"
-#include "Clock.hpp"
+#include "GameObjectController.h"
+#include "Clock.h"
 
 // Class to manage overall Game
 class Game
@@ -29,5 +27,3 @@ private:
     GameObjectController m_objectController; // Game object controller
     Clock m_gameClock; // Clock for game
 };
-
-#endif /* Game_hpp */

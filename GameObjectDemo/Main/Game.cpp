@@ -6,11 +6,11 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "Game.hpp"
+#include "Game.h"
 
 /* These would be removed and used in a more fomal "level" class*/
-#include "SpaceShip.hpp"
-#include "Alien.hpp"
+#include "SpaceShip.h"
+#include "Alien.h"
 
 
 // destructor

@@ -6,12 +6,12 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#include "SpaceShip.hpp"
+#include "SpaceShip.h"
 
 // This include is here for testing purposes, would be removed in actual implementation
 #include <iostream>
 
-SpaceShip::SpaceShip()
+SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER)
 {
     std::cout<< "I'mm a SpaceShip and I'be been born!" << std::endl;
     // set collider shapes
@@ -28,7 +28,7 @@ void SpaceShip::Init()
 void SpaceShip::Update(float deltaTime)
 {
     // check if any collisions occured, if so, process
-    if (CheckCollision()){
+    if (CheckCollision() != e_CollisionTypes::NONE){
         ProcessCollision();
     }
     

@@ -6,8 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Shape_h
-#define Shape_h
+#pragma once
 
 // Class to store a shape
 class Shape{
@@ -26,5 +25,3 @@ private:
     float m_yHeight;
     float m_xWidth;
 };
-
-#endif /* Shape_h */

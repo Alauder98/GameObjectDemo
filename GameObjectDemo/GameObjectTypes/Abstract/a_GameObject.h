@@ -6,10 +6,9 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef GameObject_hpp
-#define GameObject_hpp
+#pragma once
 
-#include "Vector2.hpp"
+#include "Vector2.h"
 
 // Class GameObject
 // Abstract class for general gameobejct type
@@ -32,5 +31,3 @@ protected:
     bool m_isActive; // is object active
     Vector2 m_position; // the 2D position of the object
 };
-
-#endif /* GameObject_hpp */

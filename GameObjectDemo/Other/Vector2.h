@@ -6,9 +6,7 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Vector2_hpp
-#define Vector2_hpp
-
+#pragma once
 // class for a vector that stores x and y values
 class Vector2
 {
@@ -35,5 +33,3 @@ private:
     // x and y values
     float m_x, m_y;
 };
-
-#endif /* Vector2_hpp */

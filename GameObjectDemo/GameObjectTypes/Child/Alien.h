@@ -6,13 +6,12 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-#ifndef Alien_hpp
-#define Alien_hpp
+#pragma once
 
 #include <stdio.h>
-#include "a_GameObject.hpp"
-#include "i_Shooter.hpp"
-#include "i_Collision.hpp"
+#include "a_GameObject.h"
+#include "i_Shooter.h"
+#include "i_Collision.h"
 
 // Class to create alien object
 class Alien: public a_GameObject, i_Shooter, i_Collision
@@ -29,5 +28,3 @@ public:
     void Shoot() override;
     void ProcessCollision() override;
 };
-
-#endif /* Alien_hpp */
