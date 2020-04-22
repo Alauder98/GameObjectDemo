@@ -10,25 +10,28 @@
 #define Collision_hpp
 
 #include <string>
+#include "Shape.h"
 
 // forward decleration of class shape
 class Shape;
 
 // Class to handle collisions for objects
-class Collision{
+class i_Collision
+{
 public:
     // Constructor / Destructor
-    Collision() = default;
-    virtual ~Collision() = default;
+    i_Collision() = default;
+    virtual ~i_Collision() = default;
     
     // Functions
     void SetColliderShape(const std::string& shape);
-    virtual void CheckCollision() = 0;
-    std::string UpdateCollider();
+    virtual void ProcessCollision() = 0;
+    bool CheckCollision();
+    Shape const returnColliderShape() { return m_colliderShape; };
     
 private:
     // the shape of this object
-    Shape colliderShape();
+    Shape m_colliderShape;
 };
 
 #endif /* Collision_hpp */

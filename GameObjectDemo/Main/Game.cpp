@@ -14,40 +14,35 @@
 
 
 // destructor
-Game::~Game(){
+Game::~Game()
+{
     // delete all gameobjects
-    objectController->Remove(true);
-    // delete the controller and clock
+    m_objectController.Remove(true);
 }
 
 // Function to start game
-void Game::Start(){
-    // create new object controller
-    objectController = std::make_unique<GameObjectController>();
+void Game::Start()
+{
     
-    // create and start clock
-    gameClock = std::make_unique<Clock>();
-    gameClock->Start();
+    m_gameClock.Start();
     
     // Create Releveant game objects for test
     SpaceShip* testSpaceShip = new SpaceShip();
     Alien* testAlien = new Alien();
     
     // Add these to object controller
-    objectController->Add(testSpaceShip);
-    objectController->Add(testAlien);
+    m_objectController.Add(testSpaceShip);
+    m_objectController.Add(testAlien);
 }
 
 // Function to process a frame
-void Game::ProcessFrame(){
+void Game::ProcessFrame()
+{
     // tick timer
-    gameClock->Tick();
-    // update objects
-    objectController->UpdateAll(gameClock->GetTime());
-    // render new states
-    objectController->RenderAll();
-    // remove inactive objects
-    objectController->Remove(false);
+    m_gameClock.Tick();
+    m_objectController.UpdateAll(m_gameClock.GetTime());
+    m_objectController.RenderAll();
+    m_objectController.Remove(false);
 }
 
 

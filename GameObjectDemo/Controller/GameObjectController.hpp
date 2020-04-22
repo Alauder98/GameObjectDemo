@@ -10,23 +10,25 @@
 #define GameObjectController_hpp
 
 #include <vector>
-#include "GameObject.hpp"
+
+class a_GameObject;
 
 // Class to store a list to manage gameobjects
-class GameObjectController{
+class GameObjectController
+{
 public:
     // Constructor / Destructor
-    GameObjectController();
+    GameObjectController() = default;
     ~GameObjectController() = default;
     
     // functions
     void UpdateAll(float deltaTime);
-    void Add(GameObject* object);
+    void Add(a_GameObject* object);
     void RenderAll();
     void Remove(bool all);
 private:
     // vector to hold gameObjects
-    std::unique_ptr<std::vector<GameObject *>> objectList;
+    std::vector<a_GameObject *> m_objectList;
 };
 
 #endif /* GameObjectController_hpp */

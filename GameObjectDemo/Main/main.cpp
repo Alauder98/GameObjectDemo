@@ -10,7 +10,8 @@
 #include <iostream>
 
 // Main to demo logic
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     // create a new game
     Game* newGame = new Game();
     // run game start

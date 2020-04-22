@@ -10,12 +10,12 @@
 #define Game_hpp
 
 #include <stdio.h>
-#include <memory>
-#include "Clock.hpp"
 #include "GameObjectController.hpp"
+#include "Clock.hpp"
 
 // Class to manage overall Game
-class Game{
+class Game
+{
 public:
     // Constructor / Destructor
     Game() = default;
@@ -26,8 +26,8 @@ public:
     void ProcessFrame();
 
 private:
-    class std::unique_ptr<GameObjectController> objectController; // Game object controller
-    class std::unique_ptr<Clock> gameClock; // Clock for game
+    GameObjectController m_objectController; // Game object controller
+    Clock m_gameClock; // Clock for game
 };
 
 #endif /* Game_hpp */

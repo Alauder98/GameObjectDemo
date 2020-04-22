@@ -10,7 +10,8 @@
 #define Vector2_hpp
 
 // class for a vector that stores x and y values
-class Vector2{
+class Vector2
+{
 public:
     // constructor and destructor
     Vector2();
@@ -24,15 +25,15 @@ public:
     inline void operator /(const int divider);
     
     // return functions
-    float x() const {return _x;}
-    float y() const {return _y;}
+    float x() const {return m_x;}
+    float y() const {return m_y;}
     
     // Set function
     void Set(float x, float y);
     
 private:
     // x and y values
-    float _x, _y;
+    float m_x, m_y;
 };
 
 #endif /* Vector2_hpp */

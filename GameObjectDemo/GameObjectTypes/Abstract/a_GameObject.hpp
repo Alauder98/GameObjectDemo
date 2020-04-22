@@ -13,23 +13,24 @@
 
 // Class GameObject
 // Abstract class for general gameobejct type
-class GameObject{
+class a_GameObject
+{
 public:
     // Constuctors
-    GameObject();
-    virtual ~GameObject() = default;
+    a_GameObject();
+    virtual ~a_GameObject() = default;
     
     // Functions
     virtual void Update(float DeltaTime) = 0;
     virtual void Init() = 0;
     virtual void Render() = 0;
-    void SetActive(bool newValue);
+    virtual void SetActive(bool newValue);
     bool GetActive() const;
     void setPos(float x, float y);
     
 protected:
-    bool isActive; // is object active
-    Vector2 position; // the 2D position of the object
+    bool m_isActive; // is object active
+    Vector2 m_position; // the 2D position of the object
 };
 
 #endif /* GameObject_hpp */

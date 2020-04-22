@@ -12,46 +12,50 @@
 #include <iostream>
 
 // Constructor
-Alien::Alien(){
+Alien::Alien()
+{
     std::cout << "I'm an Alien and I've been born!" << std::endl;
     // set collider shapes
     SetColliderShape("Sqaure");
 }
 
 // Function to update
-void Alien::Update(float deltaTime){
-    // Check for collision
-    CheckCollision();
+void Alien::Update(float deltaTime)
+{
+    // check if any collisions occured, if so, process
+    if (CheckCollision()){
+        ProcessCollision();
+    }
+    
     std::cout << "I'm an Alien and I'm updating!" << std::endl;
     // update
-    Shooter::Update(deltaTime);
+    i_Shooter::Update(deltaTime);
 }
 
 // Render alien
-void Alien::Render(){
+void Alien::Render()
+{
     std::cout << "I'm an Alien and I'm rendering!" << std::endl;
 }
 
 // Start alien
-void Alien::Init(){
+void Alien::Init()
+{
     SetActive(true);
     std::cout << "I'm an Alien and I'm initialising!" << std::endl;
 }
 
-void Alien::Shoot(){
+void Alien::Shoot()
+{
     
     // Do a random calculation
     
     // fire the bullet
-    Fire(position.x(), position.y());
+    Fire(m_position.x(), m_position.y());
 }
 
 // Function to check collision
-void Alien::CheckCollision(){
-    // update the collider
-    std::string collision = UpdateCollider();
-    
-    if (collision.compare("") != 1){
-        // compare to other types that you wish to collide with
-    }
+void Alien::ProcessCollision()
+{
+    // Redo Implementation
 }

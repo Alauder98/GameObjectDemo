@@ -9,16 +9,18 @@
 #include "Clock.hpp"
 
 // Move timer along based on when called
-void Clock::Tick(){
+void Clock::Tick()
+{
   // Calculations
 }
 
-// return time
-float Clock::GetTime() const{
-    return elapsedTime;
+float Clock::GetTime() const
+{
+    return m_elapsedTime;
 }
 
 // Function called upon starting clock, define start time
-void Clock::Start(){
+void Clock::Start()
+{
     
 }

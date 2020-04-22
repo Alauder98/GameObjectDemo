@@ -10,7 +10,8 @@
 #define Clock_hpp
 
 // class to manage a clock to calcualte frame time
-class Clock{
+class Clock
+{
 public:
     // constructor / destructor
     Clock() = default;
@@ -22,10 +23,10 @@ public:
     void Start();
     
 private:
-    int freqeuncy; // how often the clock is called
-    int start; // when we started
-    int end; // when we are called
-    float elapsedTime; // how long has elapesed between calls
+    int m_freqeuncy; // how often the clock is called
+    int m_start; // when we started
+    int m_end; // when we are called
+    float m_elapsedTime; // how long has elapesed between calls
 };
 
 #endif /* Clock_hpp */

@@ -9,39 +9,44 @@
 #include "Bullets.hpp"
 
 // Constructor
-Bullet::Bullet(){
-    // set lifespan
-    lifespan = 3.0f;
+Bullet::Bullet()
+{
     // set collider shapes
     SetColliderShape("Sqaure");
 }
 
-// Initalise the bullet
-void Bullet::Init(){
+void Bullet::Init()
+{
 }
 
-// update the bullet
-void Bullet::Update(float deltaTime){
-    // check its collisions
-    CheckCollision();
+void Bullet::SetActive(bool newValue)
+{
+    m_isActive = newValue;
+    m_lifespan = 3.0f;
+}
+
+void Bullet::Update(float deltaTime)
+{
+    // check if any collisions occured, if so, process
+    if (CheckCollision()){
+        ProcessCollision();
+    }
+    
     // subtract from lifespan
-    lifespan -= deltaTime;
+    m_lifespan -= deltaTime;
     // if lifespan is finished, set to inactive
-    if (lifespan <= 0){
+    if (m_lifespan <= 0)
+    {
         SetActive(false);
     }
 }
 
-// Render the bullet
-void Bullet::Render(){
+void Bullet::Render()
+{
 }
 
-// Check collision with bullet
-void Bullet::CheckCollision(){
-    // get collisions
-    std::string collider = UpdateCollider();
-    
-    if (collider.compare("") != 1){
-        // Handles Collision based upon repsonse
-    }
+// Process Collision with bullet
+void Bullet::ProcessCollision()
+{
+    // Redo implementation
 }

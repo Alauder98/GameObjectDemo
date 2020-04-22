@@ -10,11 +10,12 @@
 #define Bullets_hpp
 
 #include <stdio.h>
-#include "GameObject.hpp"
-#include "Collision.hpp"
+#include "a_GameObject.hpp"
+#include "i_Collision.hpp"
 
 // Class to create a bullet object
-class Bullet: public GameObject, Collision{
+class Bullet: public a_GameObject, i_Collision
+{
 public:
     // Constructor
     Bullet();
@@ -24,10 +25,11 @@ public:
     void Update(float deltaTime) override;
     void Render() override;
     void Init() override;
-    void CheckCollision() override;
+    void ProcessCollision() override;
+    void SetActive(bool newValue) override;
     
 private:
-    float lifespan; // the lifespan of this bullet
+    float m_lifespan; // the lifespan of this bullet
 };
 
 #endif /* Bullets_hpp */

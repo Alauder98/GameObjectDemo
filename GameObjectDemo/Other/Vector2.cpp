@@ -11,38 +11,39 @@
 // Constructor which has passed values (Deafult)
 Vector2::Vector2(float newX, float newY)
 {
-    _x = newX;
-    _y = newY;
+    m_x = newX;
+    m_y = newY;
 }
 
 // constructor for when no values are passed
-Vector2::Vector2():_x(0.0f), _y(0.0f)
+Vector2::Vector2():m_x(0.0f), m_y(0.0f)
 {
 }
 
-// + operator
-Vector2 Vector2::operator +(const Vector2& other) const{
+Vector2 Vector2::operator +(const Vector2& other) const
+{
     return Vector2( x() + other.x(), y() + other.y());
 }
 
-// - opertaor
-Vector2 Vector2::operator-(const Vector2& other) const{
-    return Vector2( _x - other.x(), _y - other.y());
+Vector2 Vector2::operator-(const Vector2& other) const
+{
+    return Vector2( m_x - other.x(), m_y - other.y());
 }
 
-// * operator
-void Vector2::operator*(const int multiplier){
-    _x *= multiplier;
-    _y *= multiplier;
+void Vector2::operator*(const int multiplier)
+{
+    m_x *= multiplier;
+    m_y *= multiplier;
 }
 
-// / operator
-void Vector2::operator/(const int divider){
-    _x /= divider;
-    _y /= divider;
+void Vector2::operator/(const int divider)
+{
+    m_x /= divider;
+    m_y /= divider;
 }
 
-void Vector2::Set(float x, float y){
-    _x = x;
-    _y = y;
+void Vector2::Set(float x, float y)
+{
+    m_x = x;
+    m_y = y;
 }

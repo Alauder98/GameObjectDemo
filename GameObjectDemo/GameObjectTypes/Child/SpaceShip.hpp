@@ -9,12 +9,13 @@
 #ifndef SpaceShip_hpp
 #define SpaceShip_hpp
 
-#include "GameObject.hpp"
-#include "Shooter.hpp"
-#include "Collision.hpp"
+#include "a_GameObject.hpp"
+#include "i_Shooter.hpp"
+#include "i_Collision.hpp"
 
 // Class to create spaceship
-class SpaceShip: public GameObject, Shooter, Collision{
+class SpaceShip: public a_GameObject, i_Shooter, i_Collision
+{
 public:
     // Constructor / Destructor
     SpaceShip();
@@ -25,11 +26,11 @@ public:
     void Render() override;
     void Init() override;
     void Shoot() override;
-    void CheckCollision() override;
+    void ProcessCollision() override;
     void Hit();
     
 private:
-    int health; // The health of the player
+    int m_health; // The health of the player
 };
 
 #endif /* SpaceShip_hpp */
