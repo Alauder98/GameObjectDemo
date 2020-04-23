@@ -14,9 +14,8 @@
 // Constructor
 Alien::Alien():i_Collision(e_CollisionTypes::ENEMY), i_Shooter(e_CollisionTypes::ENEMY)
 {
-    std::cout << "I'm an Alien and I've been born!" << std::endl;
     // set collider shapes
-    SetColliderShape("Sqaure");
+    SetColliderShape("Test");
 }
 
 // Function to update
@@ -30,7 +29,6 @@ void Alien::Update(float deltaTime)
     
     GetShape().setPos(m_position);
     
-    std::cout << "I'm an Alien and I'm updating!" << std::endl;
     // update
     i_Shooter::Update(deltaTime);
 }
@@ -38,14 +36,12 @@ void Alien::Update(float deltaTime)
 // Render alien
 void Alien::Render()
 {
-    std::cout << "I'm an Alien and I'm rendering!" << std::endl;
 }
 
 // Start alien
 void Alien::Init()
 {
     SetActive(true);
-    std::cout << "I'm an Alien and I'm initialising!" << std::endl;
 }
 
 void Alien::Shoot()

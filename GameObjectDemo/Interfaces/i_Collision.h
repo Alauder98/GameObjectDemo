@@ -41,5 +41,5 @@ private:
     // the shape of this object
     Shape m_colliderShape;
     e_CollisionTypes m_collisionType;
-    
+    static std::vector<Shape> m_possibleShapes;
 };

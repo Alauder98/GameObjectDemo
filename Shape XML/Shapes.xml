@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<shapes>
+    <shape>
+        <name>Shape1</name>
+        <x>30</x>
+        <y>40</y>
+    </shape>
+    <shape>
+        <name>Shape2</name>
+        <x>50</x>
+        <y>60</y>
+    </shape>
+    <shape>
+        <name>Shape3</name>
+        <x>30</x>
+        <y>40</y>
+    </shape>
+</shapes>

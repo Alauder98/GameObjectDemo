@@ -7,15 +7,34 @@
 //
 
 #include "i_Collision.h"
+#include "u_XMLReader.h"
+#include <iostream>
 
 // Function to set collision shape of the object
 void i_Collision::SetColliderShape(const std::string& collisionShape)
 {
-    // would parse shape and set accordingly
+    for (Shape indvShape : m_possibleShapes)
+    {
+        if (indvShape.Name().compare(collisionShape) == 0)
+        {
+            m_colliderShape = indvShape;
+            return;
+        }
+    }
+    
+    // if we get past this point, we've provided an invaled name
+    std::cout << "Invalid Shape Name provided" << "\n";
 }
+
+std::vector<Shape> i_Collision::m_possibleShapes;
 
 i_Collision::i_Collision(e_CollisionTypes collisionType):m_collisionType(collisionType)
 {
+    if (m_possibleShapes.empty())
+    {
+        u_XMLReader l_xmlReader;
+        m_possibleShapes = l_xmlReader.ReadXML();
+    }
 }
 
 e_CollisionTypes const i_Collision::CheckCollision(){

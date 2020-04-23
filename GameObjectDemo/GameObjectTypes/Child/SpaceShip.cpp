@@ -13,14 +13,12 @@
 
 SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER), i_Shooter(e_CollisionTypes::PLAYER)
 {
-    std::cout<< "I'mm a SpaceShip and I'be been born!" << std::endl;
     // set collider shapes
-    SetColliderShape("Sqaure");
+    SetColliderShape("Test");
 }
 
 void SpaceShip::Init()
 {
-    std::cout << "I'm a SpaceShip, and I'm initialising!" << std::endl;
     // set active to true
     SetActive(true);
 }
@@ -35,14 +33,12 @@ void SpaceShip::Update(float deltaTime)
     
     GetShape().setPos(m_position);
     
-    std::cout << "I'm a SpaceShip, and I'm updating!" << std::endl;
     // Update the bullets
     i_Shooter::Update(deltaTime);
 }
 
 void SpaceShip::Render()
 {
-    std::cout << "I'm a SpaceShip, and I'm rendering!" << std::endl;
 }
 
 // Function to handle when ship is hit
