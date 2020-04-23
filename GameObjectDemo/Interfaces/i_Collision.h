@@ -42,4 +42,5 @@ private:
     Shape m_colliderShape;
     e_CollisionTypes m_collisionType;
     static std::vector<Shape> m_possibleShapes;
+    static std::vector<i_Collision *> m_gameShapes;
 };

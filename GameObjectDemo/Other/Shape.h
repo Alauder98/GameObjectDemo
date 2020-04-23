@@ -23,6 +23,7 @@ public:
     float const Y() { return m_yHeight; };
     std::string const Name() { return m_name; };
     void setPos(Vector2 newPos);
+    Vector2 & GetPos() { return m_position; };
     
 private:
     // x and y height

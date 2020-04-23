@@ -18,6 +18,7 @@ void i_Collision::SetColliderShape(const std::string& collisionShape)
         if (indvShape.Name().compare(collisionShape) == 0)
         {
             m_colliderShape = indvShape;
+            m_gameShapes.push_back(this);
             return;
         }
     }
@@ -27,6 +28,8 @@ void i_Collision::SetColliderShape(const std::string& collisionShape)
 }
 
 std::vector<Shape> i_Collision::m_possibleShapes;
+
+std::vector<i_Collision *> i_Collision::m_gameShapes;
 
 i_Collision::i_Collision(e_CollisionTypes collisionType):m_collisionType(collisionType)
 {
@@ -39,11 +42,17 @@ i_Collision::i_Collision(e_CollisionTypes collisionType):m_collisionType(collisi
 
 e_CollisionTypes const i_Collision::CheckCollision(){
     
-    //Logic for if another shape intersects this objects shape
-    // if we flag a collision get its collision type and return it
-    // if not, return null
+    // For Each on all of the collision shapes with the exception of our shape
+    for (i_Collision * other : m_gameShapes)
+    {
+        // would compare intersection rather than position
+        if (this->GetShape().GetPos() == other->GetShape().GetPos())
+        {
+            return other->getCollisionType();
+        }
+    }
     
-    return m_collisionType;
+    return e_CollisionTypes::NONE;
 }
 
 void i_Collision::AddCollisionType(e_CollisionTypes newType){
