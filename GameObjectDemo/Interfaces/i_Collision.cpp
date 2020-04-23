@@ -45,10 +45,13 @@ e_CollisionTypes const i_Collision::CheckCollision(){
     // For Each on all of the collision shapes with the exception of our shape
     for (i_Collision * other : m_gameShapes)
     {
-        // would compare intersection rather than position
-        if (this->GetShape().GetPos() == other->GetShape().GetPos())
+        if (other != this)
         {
-            return other->getCollisionType();
+            // would compare intersection rather than position
+            if (this->GetShape().GetPos() == other->GetShape().GetPos())
+            {
+                return other->getCollisionType();
+            }
         }
     }
     
