@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <shapes>
     <shape>
-        <name>Shape1</name>
+        <id>1</id>
         <x>30</x>
         <y>40</y>
     </shape>
     <shape>
-        <name>Shape2</name>
+        <id>2</id>
         <x>50</x>
         <y>60</y>
     </shape>
     <shape>
-        <name>Shape3</name>
+        <id>3</id>
         <x>30</x>
         <y>40</y>
     </shape>

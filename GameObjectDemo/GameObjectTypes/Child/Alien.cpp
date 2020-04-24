@@ -15,7 +15,7 @@
 Alien::Alien():i_Collision(e_CollisionTypes::ENEMY), i_Shooter(e_CollisionTypes::ENEMY)
 {
     // set collider shapes
-    SetColliderShape("Test");
+    SetColliderShape(0);
 }
 
 // Function to update

@@ -12,11 +12,11 @@
 #include <iostream>
 
 // Function to set collision shape of the object
-void i_Collision::SetColliderShape(const std::string& collisionShape)
+void i_Collision::SetColliderShape(const int collisionShapeID)
 {
     for (const Shape& indvShape : m_possibleShapes)
     {
-        if (indvShape.Name().compare(collisionShape) == 0)
+        if (indvShape.ID() == collisionShapeID)
         {
             m_colliderShape = indvShape;
             m_gameShapes.push_back(this);

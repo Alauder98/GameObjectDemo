@@ -14,7 +14,7 @@
 SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER), i_Shooter(e_CollisionTypes::PLAYER)
 {
     // set collider shapes
-    SetColliderShape("Test");
+    SetColliderShape(0);
 }
 
 void SpaceShip::Init()

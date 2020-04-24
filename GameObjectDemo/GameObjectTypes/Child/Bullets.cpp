@@ -12,7 +12,7 @@
 Bullet::Bullet():i_Collision(e_CollisionTypes::BULLET)
 {
     // set collider shapes
-    SetColliderShape("Sqaure");
+    SetColliderShape(0);
 }
 
 void Bullet::Init()

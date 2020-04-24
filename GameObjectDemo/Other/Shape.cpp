@@ -9,14 +9,9 @@
 #include <stdio.h>
 #include "Shape.h"
 
-// constructor for no provided arguments
-Shape::Shape():m_yHeight(0.0f),m_xWidth(0.0f),m_name("NULL"),m_position(Vector2(0,0))
-{
-}
-
 // constructor for passed arguments
-Shape::Shape(float x, float y, std::string newName):
-m_xWidth(x), m_yHeight(y), m_name(newName), m_position(Vector2(0,0))
+Shape::Shape(float x, float y, int newID):
+m_xWidth(x), m_yHeight(y), m_id(newID), m_position(Vector2(0,0))
 {
 }
 

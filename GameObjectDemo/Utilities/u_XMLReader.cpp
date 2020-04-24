@@ -33,7 +33,7 @@ const std::vector<Shape>& u_XMLReader::ReadXML() const
     returnList.push_back(Shape(
     std::stof(shape->FirstChildElement("x")->FirstChild()->Value()),
     std::stof(shape->FirstChildElement("y")->FirstChild()->Value()),
-    shape->FirstChildElement("name")->FirstChild()->Value()
+    std::stoi(shape->FirstChildElement("id")->FirstChild()->Value())
                             ));
     
     // loop that will push in subsequent shapes
@@ -44,7 +44,7 @@ const std::vector<Shape>& u_XMLReader::ReadXML() const
         returnList.push_back(Shape(
         std::stof(shape->FirstChildElement("x")->FirstChild()->Value()),
         std::stof(shape->FirstChildElement("y")->FirstChild()->Value()),
-        shape->FirstChildElement("name")->FirstChild()->Value()
+        std::stoi(shape->FirstChildElement("id")->FirstChild()->Value())
                                 ));
         
         // if we have pushed the last element, stop the loop

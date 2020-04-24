@@ -30,7 +30,7 @@ public:
     virtual ~i_Collision() = default;
     
     // Functions
-    void SetColliderShape(const std::string& shape);
+    void SetColliderShape(const int shape);
     virtual void ProcessCollision(e_CollisionTypes type) = 0;
     e_CollisionTypes const CheckCollision();
     inline const Shape GetShape() {return m_colliderShape; };
