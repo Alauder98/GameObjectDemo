@@ -24,7 +24,7 @@ void i_Collision::SetColliderShape(const std::string& collisionShape)
         }
     }
     
-    ErrorHandler->ThrowError("Invalid shape name provided");
+    s_ErrorHandler->ThrowError("Invalid shape name provided");
 }
 
 std::vector<Shape> i_Collision::m_possibleShapes;
@@ -47,8 +47,8 @@ e_CollisionTypes const i_Collision::CheckCollision(){
     {
         if (other != this && other != nullptr)
         {
-            // would compare intersection rather than position
-            if (GetPos() == other->GetPos())
+            // check if our shape intersects the other
+            if (GetShape().Shape::CheckIntersection(other->GetShape().Shape::ReturnPoints()))
             {
                 return other->getCollisionType();
             }

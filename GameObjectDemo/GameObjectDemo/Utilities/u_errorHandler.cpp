@@ -11,16 +11,19 @@
 
 u_ErrorHandler::u_ErrorHandler()
 {
-    if (ErrorHandler)
+    if (s_ErrorHandler != nullptr)
     {
-        ErrorHandler = new u_ErrorHandler();
+        s_ErrorHandler = new u_ErrorHandler();
     }
 }
 
 u_ErrorHandler::~u_ErrorHandler()
 {
-    delete ErrorHandler;
-    ErrorHandler = nullptr;
+    if (s_ErrorHandler != nullptr)
+    {
+        delete s_ErrorHandler;
+        s_ErrorHandler = nullptr;
+    }
 }
 
 const void u_ErrorHandler::ThrowMessage(const std::string& message)

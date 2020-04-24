@@ -23,7 +23,7 @@ const std::vector<Shape>& u_XMLReader::ReadXML() const
     
     if (shapes == nullptr)
     {
-        ErrorHandler->ThrowError("Failed to load Shapes.xml");
+        s_ErrorHandler->ThrowError("Failed to load Shapes.xml");
     }
 
     // Get our first "Shape tag"

@@ -12,10 +12,10 @@
 #include "Shape.h"
 
 enum e_CollisionTypes{
-    NONE = 1,
-    PLAYER = 2,
-    ENEMY = 4,
-    BULLET = 8
+    NONE = 1 << 0,
+    PLAYER = 1 << 1,
+    ENEMY = 1 << 2,
+    BULLET = 1 << 3
 };
 
 // forward decleration of class shape
