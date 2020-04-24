@@ -8,6 +8,11 @@
 
 #pragma once
 
+#define TAG_PLAYER 2
+#define TAG_ENEMY 4
+#define TAG_PLAYER_BULLET 10
+#define TAG_ENEMY_BULLET 12
+
 #include <string>
 #include "Shape.h"
 
@@ -33,11 +38,11 @@ public:
     void SetColliderShape(const int shape);
     virtual void ProcessCollision(e_CollisionTypes type) = 0;
     e_CollisionTypes const CheckCollision();
-    inline const Shape GetShape() {return m_colliderShape; };
+    inline const Shape GetShape() const {return m_colliderShape; };
     void SetShapePos(Vector2 newPos);
     void AddCollisionType(e_CollisionTypes newType);
-    inline const e_CollisionTypes getCollisionType() {return m_collisionType; };
-    inline const Vector2 GetPos() { return m_colliderShape.GetPos(); };
+    inline e_CollisionTypes getCollisionType() const {return m_collisionType; };
+    inline const Vector2 GetPos() const { return m_colliderShape.GetPos(); };
     
 private:
     // the shape of this object

@@ -17,12 +17,12 @@ public:
     ~Vector2() = default;
     
     // operator overrides
-    inline Vector2 const operator +(const Vector2 & other) ;
-    inline Vector2 const operator -(const Vector2 & other);
+    inline Vector2 const operator +(const Vector2 & other) const;
+    inline Vector2 const operator -(const Vector2 & other) const;
     inline void operator *(const int multiplier);
     inline void operator /(const int divider);
     bool operator ==(const Vector2& other) const;
-    bool operator != (const Vector2 & other);
+    bool operator != (const Vector2 & other) const;
     
     // return functions
     float x() const {return m_x;}

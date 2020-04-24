@@ -24,7 +24,7 @@ void i_Collision::SetColliderShape(const int collisionShapeID)
         }
     }
     
-    s_ErrorHandler->ThrowError("Invalid shape name provided");
+    u_ErrorHandler::ThrowError("Shape ID does not corrospond with any IDs in Shapes.xml");
 }
 
 std::vector<Shape> i_Collision::m_possibleShapes;

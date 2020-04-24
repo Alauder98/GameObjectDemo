@@ -24,9 +24,9 @@ public:
     virtual void Init() = 0;
     virtual void Render() = 0;
     virtual void SetActive(bool newValue);
-    inline const bool GetActive() { return m_isActive; };
+    inline bool GetActive() const { return m_isActive; };
     void setPos(float x, float y);
-    inline const Vector2 GetPos() { return m_position; };
+    inline const Vector2 GetPos() const { return m_position; };
     
 protected:
     bool m_isActive; // is object active

@@ -25,11 +25,11 @@ public:
     ~Shape() = default;
     
     // Functions
-    inline float const X() { return m_xWidth; };
-    inline float const Y() { return m_yHeight; };
+    inline float X() const { return m_xWidth; };
+    inline float Y() const { return m_yHeight; };
     inline int ID() const { return m_id; };
     void setPos(Vector2 newPos);
-    inline const Vector2 GetPos() { return m_position; };
+    inline const Vector2 GetPos() const { return m_position; };
     void UpdatePoints();
     bool CheckIntersection(const PointsPos& other) const;
     inline PointsPos ReturnPoints() const { return points; } ;

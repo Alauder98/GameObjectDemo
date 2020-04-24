@@ -65,8 +65,8 @@ void SpaceShip::ProcessCollision(e_CollisionTypes type)
 {
     switch ((int)type)
     {
-        case 12:
-        case 4:
+        case TAG_ENEMY_BULLET:
+        case TAG_ENEMY:
             m_health--;
             if (m_health == 0)
             {

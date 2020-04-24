@@ -8,7 +8,6 @@
 
 #include "Game.h"
 
-#define FRAME_RATE 60.0f
 
 /* These would be removed and used in a more fomal "level" class*/
 #include "SpaceShip.h"
@@ -41,15 +40,10 @@ void Game::ProcessFrame()
     // tick timer
     m_gameClock.Tick();
     
-    // if enough time has passed to process a frame
-    if (m_gameClock.GetDeltaTime() >= FRAME_RATE)
-    {
-        m_gameClock.Reset();
-        // Update -> Render -> Remove inactive
-        m_objectController.UpdateAll(m_gameClock.GetDeltaTime());
-        m_objectController.RenderAll();
-        m_objectController.Remove(false);
-    }
+    // Update -> Render -> Remove inactive
+    m_objectController.UpdateAll(m_gameClock.GetDeltaTime());
+    m_objectController.RenderAll();
+    m_objectController.Remove(false);
 }
 
 

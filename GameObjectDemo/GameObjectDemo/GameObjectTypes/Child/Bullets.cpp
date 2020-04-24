@@ -54,10 +54,10 @@ void Bullet::ProcessCollision(e_CollisionTypes type)
     // if player is colided with and we are enemy bullet
     // or if we are player bullet who has colided with enemy
     if ((type == e_CollisionTypes::PLAYER &&
-         (int)getCollisionType() ==  12)
+         (int)getCollisionType() ==  TAG_ENEMY_BULLET)
         ||
         (type == e_CollisionTypes::ENEMY &&
-        (int) getCollisionType() == 10))
+        (int) getCollisionType() == TAG_PLAYER_BULLET))
     {
         SetActive(false);
     }

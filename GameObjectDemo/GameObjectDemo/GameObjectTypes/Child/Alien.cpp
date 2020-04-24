@@ -58,7 +58,7 @@ void Alien::ProcessCollision(e_CollisionTypes type)
 {
     switch((int)type)
     {
-        case 10:
+        case TAG_PLAYER_BULLET:
             SetActive(false);
             break;
     }

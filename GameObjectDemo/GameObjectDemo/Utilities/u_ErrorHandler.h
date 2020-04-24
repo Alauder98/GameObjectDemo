@@ -13,13 +13,13 @@ class u_ErrorHandler
 {
 public:
     // Constructor / destructor
-    u_ErrorHandler();
-    ~u_ErrorHandler();
+    u_ErrorHandler() = default;
+    ~u_ErrorHandler() = default;
     
     // Functions
-    const void ThrowError(const std::string& message);
-    const void ThrowMessage(const std::string& message);
-    const void ThrowWarning(const std::string& message);
+    static void ThrowError(const std::string& message);
+    static void ThrowMessage(const std::string& message);
+    static void ThrowWarning(const std::string& message);
 };
 
-static u_ErrorHandler * s_ErrorHandler;
+

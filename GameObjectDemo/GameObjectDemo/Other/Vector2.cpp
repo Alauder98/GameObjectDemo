@@ -18,12 +18,12 @@ Vector2::Vector2():m_x(0.0f), m_y(0.0f)
 {
 }
 
-Vector2 const Vector2::operator +(const Vector2& other)
+Vector2 const Vector2::operator +(const Vector2& other) const
 {
     return Vector2( x() + other.x(), y() + other.y());
 }
 
-Vector2 const Vector2::operator-(const Vector2& other)
+Vector2 const Vector2::operator-(const Vector2& other) const
 {
     return Vector2( m_x - other.x(), m_y - other.y());
 }
@@ -51,7 +51,7 @@ void Vector2::Set(float x, float y)
     m_y = y;
 }
 
-bool Vector2::operator!=(const Vector2& other)
+bool Vector2::operator!=(const Vector2& other) const
 {
     return !(* this == other);
 }
