@@ -13,11 +13,6 @@ void a_GameObject::SetActive(bool newValue)
     m_isActive = newValue;
 }
 
-bool a_GameObject::GetActive() const
-{
-    return m_isActive;
-}
-
 a_GameObject::a_GameObject()
 {
     SetActive(false);

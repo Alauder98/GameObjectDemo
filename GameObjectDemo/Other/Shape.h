@@ -19,11 +19,11 @@ public:
     ~Shape() = default;
     
     // Functions
-    float const X() { return m_xWidth; };
-    float const Y() { return m_yHeight; };
-    std::string const Name() { return m_name; };
+    inline float const X() { return m_xWidth; };
+    inline float const Y() { return m_yHeight; };
+    inline std::string Name() const { return m_name; };
     void setPos(Vector2 newPos);
-    Vector2 & GetPos() { return m_position; };
+    inline const Vector2 GetPos() { return m_position; };
     
 private:
     // x and y height

@@ -20,10 +20,10 @@ public:
     
     // functions
     void Tick();
-    float const GetDeltaTime() { return m_deltaTime.count(); } ;
+    inline float const GetDeltaTime() { return m_deltaTime.count(); } ;
     void Reset();
     void TimeScale (float t = 1.0f);
-    float const GetTimeScale() { return m_timeScale; } ;
+    inline float const GetTimeScale() { return m_timeScale; } ;
     
 private:
     std::chrono::system_clock::time_point m_startTime;

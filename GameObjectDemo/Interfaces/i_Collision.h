@@ -33,9 +33,11 @@ public:
     void SetColliderShape(const std::string& shape);
     virtual void ProcessCollision(e_CollisionTypes type) = 0;
     e_CollisionTypes const CheckCollision();
-    Shape& GetShape() {return m_colliderShape; };
+    inline const Shape GetShape() {return m_colliderShape; };
+    void SetShapePos(Vector2 newPos);
     void AddCollisionType(e_CollisionTypes newType);
-    e_CollisionTypes const getCollisionType() {return m_collisionType; };
+    inline const e_CollisionTypes getCollisionType() {return m_collisionType; };
+    inline const Vector2 GetPos() { return m_colliderShape.GetPos(); };
     
 private:
     // the shape of this object

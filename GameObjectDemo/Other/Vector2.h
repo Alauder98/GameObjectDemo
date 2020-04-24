@@ -12,8 +12,8 @@ class Vector2
 {
 public:
     // constructor and destructor
-    Vector2();
-    Vector2(float x, float y);
+    explicit Vector2();
+    explicit Vector2(float x, float y);
     ~Vector2() = default;
     
     // operator overrides
@@ -21,7 +21,7 @@ public:
     inline Vector2 const operator -(const Vector2 & other);
     inline void operator *(const int multiplier);
     inline void operator /(const int divider);
-    bool operator == (const Vector2 & other);
+    bool operator ==(const Vector2& other) const;
     bool operator != (const Vector2 & other);
     
     // return functions

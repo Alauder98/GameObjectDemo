@@ -8,22 +8,24 @@
 
 #include "u_XMLReader.h"
 #include "tinyxml2.h"
-#include <assert.h>
+#include "u_ErrorHandler.h"
 
-std::vector<Shape> u_XMLReader::ReadXML()
+const std::vector<Shape>& u_XMLReader::ReadXML() const
 {
-    std::vector<Shape> returnList;
-    bool nextChild = true;
     tinyxml2::XMLDocument file;
-    
+    static std::vector<Shape> returnList;
     // Open file and check we have no errors doing so
     file.LoadFile("Shapes.xml");
-    assert(!file.Error());
     
     // get the "Shapes tag"
     tinyxml2::XMLElement * shapes =
     file.FirstChildElement( "shapes" );
     
+    if (shapes == nullptr)
+    {
+        ErrorHandler->ThrowError("Failed to load Shapes.xml");
+    }
+
     // Get our first "Shape tag"
     tinyxml2::XMLElement * shape = shapes->FirstChildElement("shape");
     
@@ -35,7 +37,7 @@ std::vector<Shape> u_XMLReader::ReadXML()
                             ));
     
     // loop that will push in subsequent shapes
-    while (nextChild)
+    while (shape)
     {
         shape = shape->NextSiblingElement();
         
@@ -48,7 +50,7 @@ std::vector<Shape> u_XMLReader::ReadXML()
         // if we have pushed the last element, stop the loop
         if (shape == shapes->LastChildElement())
         {
-            nextChild = false;
+            shape = nullptr;
         }
     }
     

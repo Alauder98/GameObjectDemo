@@ -21,16 +21,16 @@ Alien::Alien():i_Collision(e_CollisionTypes::ENEMY), i_Shooter(e_CollisionTypes:
 // Function to update
 void Alien::Update(float deltaTime)
 {
+    SetShapePos(m_position);
+    
+    // update
+    i_Shooter::Update(deltaTime);
+    
     // check if any collisions occured, if so, process
     e_CollisionTypes type = CheckCollision();
     if (type != e_CollisionTypes::NONE){
         ProcessCollision(type);
     }
-    
-    GetShape().setPos(m_position);
-    
-    // update
-    i_Shooter::Update(deltaTime);
 }
 
 // Render alien

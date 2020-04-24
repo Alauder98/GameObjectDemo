@@ -27,13 +27,7 @@ void Bullet::SetActive(bool newValue)
 
 void Bullet::Update(float deltaTime)
 {
-    e_CollisionTypes type = CheckCollision();
-    // check if any collisions occured, if so, process
-    if (type != e_CollisionTypes::NONE){
-        ProcessCollision(type);
-    }
-    
-    GetShape().setPos(m_position);
+    SetShapePos(m_position);
     
     // subtract from lifespan
     m_lifespan -= deltaTime;
@@ -41,6 +35,12 @@ void Bullet::Update(float deltaTime)
     if (m_lifespan <= 0)
     {
         SetActive(false);
+    }
+    
+    e_CollisionTypes type = CheckCollision();
+    // check if any collisions occured, if so, process
+    if (type != e_CollisionTypes::NONE){
+        ProcessCollision(type);
     }
 }
 

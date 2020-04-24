@@ -25,16 +25,16 @@ void SpaceShip::Init()
 
 void SpaceShip::Update(float deltaTime)
 {
+    SetShapePos(m_position);
+    
+    // Update the bullets
+    i_Shooter::Update(deltaTime);
+    
     // check if any collisions occured, if so, process
     e_CollisionTypes type = CheckCollision();
     if (type != e_CollisionTypes::NONE){
         ProcessCollision(type);
     }
-    
-    GetShape().setPos(m_position);
-    
-    // Update the bullets
-    i_Shooter::Update(deltaTime);
 }
 
 void SpaceShip::Render()

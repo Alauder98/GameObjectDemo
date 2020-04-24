@@ -40,16 +40,9 @@ void Vector2::operator/(const int divider)
     m_y /= divider;
 }
 
-bool Vector2::operator==(const Vector2& other)
+bool Vector2::operator==(const Vector2& other) const
 {
-    if (m_x == other.x() && m_y == other.y())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return m_x == other.x() && m_y == other.y();
 }
 
 void Vector2::Set(float x, float y)
@@ -60,12 +53,5 @@ void Vector2::Set(float x, float y)
 
 bool Vector2::operator!=(const Vector2& other)
 {
-    if (x() != m_x || y() != m_y)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return !(* this == other);
 }

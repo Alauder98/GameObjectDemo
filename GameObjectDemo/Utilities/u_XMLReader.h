@@ -18,5 +18,5 @@ public:
     u_XMLReader() = default;
     ~u_XMLReader() = default;
     
-    std::vector<Shape> ReadXML();
+    const std::vector<Shape>& ReadXML() const;
 };
