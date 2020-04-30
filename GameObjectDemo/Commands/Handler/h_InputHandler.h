@@ -14,7 +14,7 @@
 class h_InputHandler
 {
 public:
-    h_InputHandler() = default;
+    h_InputHandler();
     ~h_InputHandler();
     a_Command* HandleInput();
     

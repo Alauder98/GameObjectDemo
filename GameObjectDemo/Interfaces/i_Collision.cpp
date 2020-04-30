@@ -35,7 +35,7 @@ i_Collision::i_Collision(e_CollisionTypes collisionType):m_collisionType(collisi
 {
     if (m_possibleShapes.empty())
     {
-        u_XMLReader l_xmlReader;
+        u_XMLReader<Shape> l_xmlReader;
         m_possibleShapes = l_xmlReader.ReadXML();
     }
 }

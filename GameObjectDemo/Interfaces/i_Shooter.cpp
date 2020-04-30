@@ -7,6 +7,7 @@
 //
 
 #include "i_Shooter.h"
+#include "u_DebugMonitor.h"
 
 #define BULLET_SIZE 3 // how many bullets can be fired at once
 
@@ -21,6 +22,7 @@ i_Shooter::i_Shooter(e_CollisionTypes parentCollisionType)
         Bullet newBullet;
         newBullet.AddCollisionType(parentCollisionType);
         m_bullets.push_back(newBullet);
+        u_DebugMonitor::AddGameObject();
     }
 }
 

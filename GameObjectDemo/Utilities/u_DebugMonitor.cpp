@@ -30,8 +30,8 @@ void u_DebugMonitor::SetFrameTime(float newTime)
 
 void u_DebugMonitor::PrintToConsole()
 {
-    std::cout << "DEBUG DETAILS:" << std::endl
-    << "CURRENT OS :" <<
+    std::cout << "DEBUG DETAILS:" << std::endl << std::endl
+    << "CURRENT OS: " <<
 #ifdef __APPLE__
     "MAC OSX" << std::endl
 #elif defined _WIN32 || defined _WIN64

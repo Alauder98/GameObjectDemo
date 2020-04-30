@@ -16,7 +16,7 @@
 SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER), i_Shooter(e_CollisionTypes::PLAYER)
 {
     // set collider shapes
-    SetColliderShape(0);
+    SetColliderShape(1);
 }
 
 void SpaceShip::Init()
@@ -33,7 +33,7 @@ void SpaceShip::Update(float deltaTime)
     a_Command * command = m_inputHandler.HandleInput();
     
     // If we get a command, execute
-    if (command != nullptr)
+    if (command)
     {
         command->Execute(static_cast<a_GameObject &>(* this));
     }

@@ -13,5 +13,8 @@
 class c_ShootCommand: public a_Command
 {
 public:
+    c_ShootCommand() = default;
+    ~c_ShootCommand() = default;
+    
     void Execute(a_GameObject & actor);
 };
