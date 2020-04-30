@@ -11,7 +11,5 @@
 
 void c_ShootCommand::Execute(a_GameObject & actor)
 {
-    SpaceShip & newActor = (SpaceShip &) actor;
-    
-    newActor.Shoot();
+    static_cast<SpaceShip &>(actor).Shoot();
 }

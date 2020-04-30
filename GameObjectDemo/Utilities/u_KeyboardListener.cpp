@@ -6,15 +6,22 @@
 //  Copyright © 2020 Alec Lauder. All rights reserved.
 //
 
-// This file is windows only
 // TODO OSX implementation
 
 #include "u_KeyboardListener.h"
-//#include <windows.h>
+
+#ifdef __APPLE__
+
+#elif defined _WIN32 || defined _WIN64
+    #include <windows.h>
+#endif
 
 // Function to query a key down
 bool u_KeyboardListener::GetKey(const e_Keys key)
 {
+#ifdef __APPLE__
     return true;
-    //return GetAsyncKeyState((int) key);
+#elif defined _WIN32 || defined _WIN64
+    return GetAsyncKeyState((int) key);
+#endif
 }
