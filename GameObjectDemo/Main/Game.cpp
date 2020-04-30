@@ -7,6 +7,7 @@
 //
 
 #include "Game.h"
+#include "u_DebugMonitor.h"
 
 
 /* These would be removed and used in a more fomal "level" class*/
@@ -39,6 +40,9 @@ void Game::ProcessFrame()
 {
     // tick timer
     m_gameClock.Tick();
+    
+    
+    u_DebugMonitor::PrintToConsole();
     
     // Update -> Render -> Remove inactive
     m_objectController.UpdateAll(m_gameClock.GetDeltaTime());

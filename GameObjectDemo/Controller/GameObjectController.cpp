@@ -8,6 +8,7 @@
 
 #include "GameObjectController.h"
 #include "a_GameObject.h"
+#include "u_DebugMonitor.h"
 
 // Function to update all objects in the list
 void GameObjectController::UpdateAll(float deltaTime)
@@ -41,6 +42,8 @@ void GameObjectController::Add(a_GameObject* object)
         m_objectList.push_back(object);
         object->Init();
     }
+    
+    u_DebugMonitor::AddGameObject();
 }
 
 // Remove an object from the list
@@ -51,6 +54,7 @@ void GameObjectController::Remove(bool removeAll)
         // check if inactive, or if we will delete all objects
         if ((object != nullptr && !object->GetActive()) || removeAll)
         {
+            u_DebugMonitor::RemoveGameObject();
             delete object;
             object = nullptr;
         }
