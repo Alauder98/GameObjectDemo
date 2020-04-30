@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <csignal>
 #include "u_ErrorHandler.h"
 
 void u_ErrorHandler::ThrowMessage(const std::string& message)
@@ -22,5 +23,5 @@ void u_ErrorHandler::ThrowWarning(const std::string& message)
 void u_ErrorHandler::ThrowError(const std::string& message)
 {
     std::cout << "ERROR: " << message << "\n";
-    assert(false);
+    std::raise(SIGABRT);
 }

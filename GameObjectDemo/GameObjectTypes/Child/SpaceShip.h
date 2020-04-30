@@ -11,6 +11,7 @@
 #include "a_GameObject.h"
 #include "i_Shooter.h"
 #include "i_Collision.h"
+#include "h_InputHandler.h"
 
 // Class to create spaceship
 class SpaceShip: public a_GameObject, public i_Shooter, public i_Collision
@@ -27,7 +28,8 @@ public:
     void Shoot() override;
     void ProcessCollision(e_CollisionTypes type) override;
     void Hit();
-    
+
 private:
     int m_health; // The health of the player
+    h_InputHandler m_inputHandler;
 };

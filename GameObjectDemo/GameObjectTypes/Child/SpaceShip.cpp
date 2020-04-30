@@ -7,6 +7,8 @@
 //
 
 #include "SpaceShip.h"
+#include "c_ShootCommand.h"
+#include "a_Command.h"
 
 // This include is here for testing purposes, would be removed in actual implementation
 #include <iostream>
@@ -21,10 +23,21 @@ void SpaceShip::Init()
 {
     // set active to true
     SetActive(true);
+    
+    m_inputHandler.SetInput(SPACE, new c_ShootCommand());
 }
 
 void SpaceShip::Update(float deltaTime)
 {
+    // attempt to get command
+    a_Command * command = m_inputHandler.HandleInput();
+    
+    // If we get a command, execute
+    if (command != nullptr)
+    {
+        command->Execute(static_cast<a_GameObject &>(* this));
+    }
+    
     SetShapePos(m_position);
     
     // Update the bullets
