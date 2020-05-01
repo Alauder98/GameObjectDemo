@@ -11,7 +11,7 @@
 #include "u_KeyboardListener.h"
 
 #ifdef __APPLE__
-
+    #include <Carbon/Carbon.h>
 #elif defined _WIN32 || defined _WIN64
     #include <windows.h>
 #endif
@@ -20,8 +20,12 @@
 bool u_KeyboardListener::GetKey(const e_Keys key)
 {
 #ifdef __APPLE__
-    return true;
+    // OS X implementation
+    unsigned char keyMap[16];
+    GetKeys((BigEndianUInt32*) &keyMap);
+    return (0 != ((keyMap[ int(key) >> 3] >> (int(key) & 7)) & 1));
 #elif defined _WIN32 || defined _WIN64
+    // Windows implementation
     return GetAsyncKeyState((int) key);
 #endif
 }

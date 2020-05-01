@@ -7,7 +7,6 @@
 //
 
 #include "Game.h"
-#include <iostream>
 
 // Main to demo logic
 int main(int argc, const char * argv[])

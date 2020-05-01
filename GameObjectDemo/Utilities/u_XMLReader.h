@@ -13,8 +13,6 @@
 #include "tinyxml2.h"
 #include "u_ErrorHandler.h"
 
-#include <iostream>
-
 template <typename T>
 // Class to readaCSV and return a list of shapes
 class u_XMLReader
