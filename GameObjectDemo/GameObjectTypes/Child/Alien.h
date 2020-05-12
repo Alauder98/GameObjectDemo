@@ -10,21 +10,24 @@
 
 #include <stdio.h>
 #include "a_GameObject.h"
-#include "i_Shooter.h"
-#include "i_Collision.h"
+#include "ShooterComponent.h"
+#include "CollisionComponent.h"
 
 // Class to create alien object
-class Alien: public a_GameObject, public i_Shooter, public i_Collision
+class Alien: public a_GameObject
 {
 public:
     // Constructor / destructor
     Alien();
-    ~Alien() = default;
+    virtual ~Alien() = default;
     
     // Functions
     void Update(float deltaTime) override;
     void Render() override;
     void Init() override;
-    void Shoot() override;
-    void ProcessCollision(e_CollisionTypes type) override;
+    void ProcessCollision(e_CollisionTypes type);
+    
+private:
+    ShooterComponent m_ShooterComponent;
+    CollisionComponent m_CollisionComponent;
 };

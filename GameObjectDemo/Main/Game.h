@@ -9,8 +9,8 @@
 #pragma once
 
 #include <stdio.h>
-#include "GameObjectController.h"
 #include "Clock.h"
+#include "Scene.h"
 
 // Class to manage overall Game
 class Game
@@ -25,6 +25,7 @@ public:
     void ProcessFrame();
 
 private:
-    GameObjectController m_objectController; // Game object controller
+    //GameObjectController m_objectController; // Game object controller
     Clock m_gameClock; // Clock for game
+    Scene * m_currentScene;
 };

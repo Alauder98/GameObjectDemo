@@ -15,5 +15,5 @@ public:
     a_Command() = default;
     virtual ~a_Command() = default;
     
-    virtual void Execute(a_GameObject & actor) = 0;
+    virtual void Execute(a_GameObject * actor) = 0;
 };

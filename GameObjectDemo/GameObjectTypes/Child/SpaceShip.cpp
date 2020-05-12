@@ -10,19 +10,18 @@
 #include "c_ShootCommand.h"
 #include "a_Command.h"
 
-// This include is here for testing purposes, would be removed in actual implementation
-#include <iostream>
-
-SpaceShip::SpaceShip():i_Collision(e_CollisionTypes::PLAYER), i_Shooter(e_CollisionTypes::PLAYER)
+SpaceShip::SpaceShip()
 {
     // set collider shapes
-    SetColliderShape(1);
+    m_CollisionComponent.SetColliderShape(1);
+    m_CollisionComponent.AddCollisionType(e_CollisionTypes::PLAYER);
+    m_maxHealth = m_CurrentHealth = 3;
 }
 
 void SpaceShip::Init()
 {
     // set active to true
-    SetActive(true);
+    m_isActive = true;
     
     m_inputHandler.SetInput(SPACE, new c_ShootCommand());
 }
@@ -35,19 +34,18 @@ void SpaceShip::Update(float deltaTime)
     // If we get a command, execute
     if (command)
     {
-        command->Execute(static_cast<a_GameObject &>(* this));
+        command->Execute((this));
     }
     
-    SetShapePos(m_position);
-    
-    // Update the bullets
-    i_Shooter::Update(deltaTime);
+    m_CollisionComponent.SetShapePos(m_position);
     
     // check if any collisions occured, if so, process
-    e_CollisionTypes type = CheckCollision();
+    e_CollisionTypes type = m_CollisionComponent.CheckCollision();
     if (type != e_CollisionTypes::NONE){
         ProcessCollision(type);
     }
+    
+    m_ToDelete = true;
 }
 
 void SpaceShip::Render()
@@ -58,19 +56,18 @@ void SpaceShip::Render()
 void SpaceShip::Hit()
 {
     // remove health
-    m_health--;
+    m_CurrentHealth--;
     // if 0, set active to false
-    if (m_health <= 0)
+    if (m_CurrentHealth <= 0)
     {
-        SetActive(false);
+        m_ToDelete = true;
     }
 }
 
-// Function to shoot a bullet
+// Shoot Command
 void SpaceShip::Shoot()
 {
-    // Get Theoretical Keyboard input
-    Fire(m_position.x(), m_position.y());
+    m_shooterComponent.Fire(m_position.x(), m_position.y(), e_CollisionTypes::PLAYER);
 }
 
 // Function to check collision
@@ -80,10 +77,10 @@ void SpaceShip::ProcessCollision(e_CollisionTypes type)
     {
         case TAG_ENEMY_BULLET:
         case TAG_ENEMY:
-            m_health--;
-            if (m_health == 0)
+            m_CurrentHealth--;
+            if (m_CurrentHealth == 0)
             {
-                SetActive(false);
+                m_ToDelete = true;
             }
             break;
     }

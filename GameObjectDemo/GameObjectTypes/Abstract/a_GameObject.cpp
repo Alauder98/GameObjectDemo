@@ -8,14 +8,10 @@
 
 #include "a_GameObject.h"
 
-void a_GameObject::SetActive(bool newValue)
-{
-    m_isActive = newValue;
-}
-
 a_GameObject::a_GameObject()
 {
-    SetActive(false);
+    m_isActive = false;
+    m_ToDelete = false;
     m_position.Set(0.0f, 0.0f);
 }
 

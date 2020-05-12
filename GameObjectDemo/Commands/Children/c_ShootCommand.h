@@ -16,5 +16,5 @@ public:
     c_ShootCommand() = default;
     ~c_ShootCommand() = default;
     
-    void Execute(a_GameObject & actor);
+    void Execute(a_GameObject * actor);
 };

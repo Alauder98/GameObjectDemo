@@ -9,10 +9,11 @@
 #include "Bullets.h"
 
 // Constructor
-Bullet::Bullet():i_Collision(e_CollisionTypes::BULLET)
+Bullet::Bullet()
 {
     // set collider shapes
-    SetColliderShape(1);
+    m_collisionComponent.SetColliderShape(1);
+    m_collisionComponent.AddCollisionType(e_CollisionTypes::BULLET);
 }
 
 void Bullet::Init()
@@ -27,7 +28,7 @@ void Bullet::SetActive(bool newValue)
 
 void Bullet::Update(float deltaTime)
 {
-    SetShapePos(m_position);
+    m_collisionComponent.SetShapePos(m_position);
     
     // subtract from lifespan
     m_lifespan -= deltaTime;
@@ -37,7 +38,7 @@ void Bullet::Update(float deltaTime)
         SetActive(false);
     }
     
-    e_CollisionTypes type = CheckCollision();
+    e_CollisionTypes type = m_collisionComponent.CheckCollision();
     // check if any collisions occured, if so, process
     if (type != e_CollisionTypes::NONE){
         ProcessCollision(type);
@@ -51,14 +52,20 @@ void Bullet::Render()
 // Process Collision with bullet
 void Bullet::ProcessCollision(e_CollisionTypes type)
 {
+    int collisionType = (int)m_collisionComponent.getCollisionType();
     // if player is colided with and we are enemy bullet
     // or if we are player bullet who has colided with enemy
     if ((type == e_CollisionTypes::PLAYER &&
-         (int)getCollisionType() ==  TAG_ENEMY_BULLET)
+         collisionType ==  TAG_ENEMY_BULLET)
         ||
         (type == e_CollisionTypes::ENEMY &&
-        (int) getCollisionType() == TAG_PLAYER_BULLET))
+        collisionType == TAG_PLAYER_BULLET))
     {
         SetActive(false);
     }
+}
+
+void Bullet::SetOwned(bool newOwnedValue)
+{
+    m_currentlyOwned = newOwnedValue;
 }

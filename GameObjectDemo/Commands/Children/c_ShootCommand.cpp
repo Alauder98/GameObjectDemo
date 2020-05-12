@@ -9,7 +9,7 @@
 #include "c_ShootCommand.h"
 #include "SpaceShip.h"
 
-void c_ShootCommand::Execute(a_GameObject & actor)
+void c_ShootCommand::Execute(a_GameObject * actor)
 {
-    static_cast<SpaceShip &>(actor).Shoot();
+    static_cast<SpaceShip*>(actor)->Shoot();
 }

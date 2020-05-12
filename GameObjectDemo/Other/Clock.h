@@ -29,6 +29,4 @@ private:
     std::chrono::system_clock::time_point m_startTime;
     std::chrono::duration<float> m_deltaTime;
     float m_timeScale;
-    
-    
 };

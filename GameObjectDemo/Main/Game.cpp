@@ -7,25 +7,25 @@
 //
 
 #include "Game.h"
-#include "u_DebugMonitor.h"
-
-
-/* These would be removed and used in a more fomal "level" class*/
-#include "SpaceShip.h"
-#include "Alien.h"
-
-#include <iostream>
+#include "u_ErrorHandler.h"
 
 // destructor
 Game::~Game()
 {
+    /*
     // delete all gameobjects
-    m_objectController.Remove(true);
+    m_objectController.RemoveAll();
+     */
+    
+    m_currentScene->ShutDownScene();
+    delete m_currentScene;
+    m_currentScene = nullptr;
 }
 
 // Function to start game
 void Game::Start()
 {
+    /*
     // Create Releveant game objects for test
     SpaceShip* testSpaceShip = new SpaceShip();
     Alien* testAlien = new Alien();
@@ -33,6 +33,11 @@ void Game::Start()
     // Add these to object controller
     m_objectController.Add(testSpaceShip);
     m_objectController.Add(testAlien);
+    ShooterComponent::InitShooter(m_objectController);
+     */
+    
+    m_currentScene = new Scene();
+    m_currentScene->LoadScene(1, "Test");
 }
 
 // Function to process a frame
@@ -41,13 +46,15 @@ void Game::ProcessFrame()
     // tick timer
     m_gameClock.Tick();
     
+    //Update->Removce->Render Inactive on current scene
+    m_currentScene->StepSceneForwardFrame(m_gameClock.GetDeltaTime());
     
-    u_DebugMonitor::PrintToConsole();
-    
+    /*
     // Update -> Render -> Remove inactive
     m_objectController.UpdateAll(m_gameClock.GetDeltaTime());
     m_objectController.RenderAll();
-    m_objectController.Remove(false);
+    //m_objectController.Remove(false);
+     */
 }
 
 

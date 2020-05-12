@@ -38,5 +38,5 @@ void u_DebugMonitor::PrintToConsole()
     "WINDOWS" << std::endl
 #endif
     << "GAMEOBJECTS CURRENTLY LOADED: " << m_CurrentGameObjects << std::endl
-    << "TIME BETWEEN FRAMES: " << m_CurrentTimeBetweenFrames << std::endl;
+    << "TIME BETWEEN FRAMES: " << m_CurrentTimeBetweenFrames << std::endl << std::endl;
 }

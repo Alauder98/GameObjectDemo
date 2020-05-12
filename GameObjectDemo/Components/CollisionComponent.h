@@ -27,18 +27,17 @@ enum e_CollisionTypes{
 class Shape;
 
 // Class to handle collisions for objects
-class i_Collision
+class CollisionComponent
 {
 public:
     // Constructor / Destructor
-    i_Collision(e_CollisionTypes collisionType);
-    virtual ~i_Collision() = default;
+    CollisionComponent();
+    virtual ~CollisionComponent() = default;
     
     // Functions
     void SetColliderShape(const int shape);
-    virtual void ProcessCollision(e_CollisionTypes type) = 0;
     e_CollisionTypes const CheckCollision();
-    inline const Shape GetShape() const {return m_colliderShape; };
+    inline Shape& GetShape() {return m_colliderShape; };
     void SetShapePos(Vector2 newPos);
     void AddCollisionType(e_CollisionTypes newType);
     inline e_CollisionTypes getCollisionType() const {return m_collisionType; };
@@ -49,5 +48,5 @@ private:
     Shape m_colliderShape;
     e_CollisionTypes m_collisionType;
     static std::vector<Shape> m_possibleShapes;
-    static std::vector<i_Collision *> m_gameShapes;
+    static std::vector<CollisionComponent *> m_gameShapes;
 };

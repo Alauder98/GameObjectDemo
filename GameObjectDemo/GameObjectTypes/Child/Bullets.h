@@ -10,10 +10,10 @@
 
 #include <stdio.h>
 #include "a_GameObject.h"
-#include "i_Collision.h"
+#include "CollisionComponent.h"
 
 // Class to create a bullet object
-class Bullet: public a_GameObject, public i_Collision
+class Bullet: public a_GameObject
 {
 public:
     // Constructor
@@ -24,9 +24,13 @@ public:
     void Update(float deltaTime) override;
     void Render() override;
     void Init() override;
-    void ProcessCollision(e_CollisionTypes type) override;
-    void SetActive(bool newValue) override;
+    void ProcessCollision(e_CollisionTypes type);
+    void SetActive(bool newValue);
+    inline bool ReturnOwned() const { return m_currentlyOwned; };
+    void SetOwned(bool newOwnedValue);
     
 private:
     float m_lifespan; // the lifespan of this bullet
+    CollisionComponent m_collisionComponent;
+    bool m_currentlyOwned;
 };

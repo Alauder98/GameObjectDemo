@@ -7,6 +7,7 @@
 //
 
 #include "Clock.h"
+#include <assert.h>
 
 Clock::Clock(){
     Reset();
@@ -27,6 +28,7 @@ void Clock::TimeScale(float t /* = 1.0f */)
 void Clock::Tick()
 {
     m_deltaTime = std::chrono::system_clock::now() - m_startTime;
+    assert(m_deltaTime > (std::chrono::duration<float>)0.0f);
 }
 
 

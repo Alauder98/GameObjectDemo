@@ -28,7 +28,7 @@ h_InputHandler::~h_InputHandler()
 
 a_Command * h_InputHandler::HandleInput()
 {
-    // attempt key, if true, execute input
+    // attempt key, if true, execute input, ordered based on priority
     if (u_KeyboardListener::GetKey(SPACE)) { return m_Key_Space; }
     else if (u_KeyboardListener::GetKey(X)) { return m_Key_X; }
     else if (u_KeyboardListener::GetKey(Z)) { return m_Key_Z; }
@@ -36,7 +36,6 @@ a_Command * h_InputHandler::HandleInput()
     else if (u_KeyboardListener::GetKey(A)) { return m_Key_A; }
     else if (u_KeyboardListener::GetKey(S)) { return m_Key_S; }
     else if (u_KeyboardListener::GetKey(D)) { return m_Key_D; }
-    
     
     // if none return a nullptr
     return nullptr;

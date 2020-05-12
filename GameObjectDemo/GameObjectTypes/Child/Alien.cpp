@@ -12,22 +12,20 @@
 #include <iostream>
 
 // Constructor
-Alien::Alien():i_Collision(e_CollisionTypes::ENEMY), i_Shooter(e_CollisionTypes::ENEMY)
+Alien::Alien()
 {
     // set collider shapes
-    SetColliderShape(1);
+    m_CollisionComponent.SetColliderShape(1);
+    m_CollisionComponent.AddCollisionType(e_CollisionTypes::ENEMY);
 }
 
 // Function to update
 void Alien::Update(float deltaTime)
 {
-    SetShapePos(m_position);
-    
-    // update
-    i_Shooter::Update(deltaTime);
+    m_CollisionComponent.SetShapePos(m_position);
     
     // check if any collisions occured, if so, process
-    e_CollisionTypes type = CheckCollision();
+    e_CollisionTypes type = m_CollisionComponent.CheckCollision();
     if (type != e_CollisionTypes::NONE){
         ProcessCollision(type);
     }
@@ -41,16 +39,7 @@ void Alien::Render()
 // Start alien
 void Alien::Init()
 {
-    SetActive(true);
-}
-
-void Alien::Shoot()
-{
-    
-    // Do a random calculation
-    
-    // fire the bullet
-    Fire(m_position.x(), m_position.y());
+    m_isActive = true;
 }
 
 // Function to check collision
@@ -59,7 +48,7 @@ void Alien::ProcessCollision(e_CollisionTypes type)
     switch((int)type)
     {
         case TAG_PLAYER_BULLET:
-            SetActive(false);
+            m_ToDelete = true;
             break;
     }
 }

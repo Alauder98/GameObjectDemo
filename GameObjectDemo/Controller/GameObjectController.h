@@ -23,7 +23,9 @@ public:
     void UpdateAll(float deltaTime);
     void Add(a_GameObject* object);
     void RenderAll();
-    void Remove(bool all);
+    void RemoveAll();
+    const std::vector<a_GameObject* > & ReturnList() { return m_objectList;};
+    
 private:
     // vector to hold gameObjects
     std::vector<a_GameObject *> m_objectList;
